@@ -1,0 +1,177 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.4",
+	"appid": "wxe25cbea0d2a8b4a8",
+	"projectname": "eating",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 18,
+			"list": [
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": "name=sjr&age=22",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "introduce",
+					"pathName": "pages/introduce/introduce",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "plan-index",
+					"pathName": "pages/plan/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "plan-setting",
+					"pathName": "pages/plan/setting",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "plan-edit",
+					"pathName": "pages/plan/edit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "plan-address",
+					"pathName": "pages/plan/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "charge",
+					"pathName": "pages/charge/charge",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "complete",
+					"pathName": "pages/complete/complete",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cancel",
+					"pathName": "pages/cancel/cancel",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "评论",
+					"pathName": "pages/comment/comment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "me-index",
+					"pathName": "pages/me/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "me-bill",
+					"pathName": "pages/bill/bill",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "me-address",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "me-refund",
+					"pathName": "pages/refund/refund",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "me-balance",
+					"pathName": "pages/balance/balance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "me-voucher",
+					"pathName": "pages/voucher/voucher",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

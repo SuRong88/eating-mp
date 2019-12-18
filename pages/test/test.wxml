@@ -1,0 +1,10 @@
+<!--pages/test/test.wxml-->
+ <view class="container" style="padding-top:{{padHeight}}rpx;" >
+     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+           <image src="../../images/Coupon02.png" class="header-bg" style="height:{{padHeight}}rpx;"></image>
+           <image src="../../images/Me_arrow.png" class="header-logo"></image>
+     </view>
+     <view class="content">
+         内容区
+     </view>
+ </view>

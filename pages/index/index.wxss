@@ -1,0 +1,128 @@
+/**index.wxss**/
+.header {
+    height: auto;
+}
+.header-content{
+   padding-left: 40rpx;
+}
+.header .header-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 376rpx;
+    z-index: 99;
+    display: block;
+}
+.content{
+   padding: 0 40rpx; 
+}
+.tip-box{
+    text-align: center;
+    border-bottom: 1rpx solid #EEEEEE;
+    padding:40rpx 0;
+}
+.tip{
+    font-size: 32rpx;
+    color: #B48C5A;
+    font-weight: 700;
+}
+.tip-m{
+    margin-top: 22rpx;
+    font-size: 26rpx;
+    color: #666666;
+}
+.date{
+    margin: 0 10rpx;
+}
+.plan-box01{
+    padding-top: 84rpx;
+}
+.box01-tip{
+    margin-bottom: 70rpx;
+    font-size: 30rpx;
+    color: #333333;
+    text-align: center;
+    font-weight: 700;
+}
+.add-icon{
+    width: 196rpx;
+    height: 196rpx; 
+    display: block;
+    margin: 0 auto;
+}
+.box2-tit{
+    font-size: 32rpx;
+    color: #333333;
+    line-height: 130rpx;
+    font-weight: 700;
+}
+.day-tit{
+    
+    font-size: 28rpx;
+    color: #666666;
+    margin-bottom: 22rpx;
+}
+.day-box{
+    margin-bottom: 40rpx;
+}
+.day-item{
+    width: 120rpx;
+    line-height: 58rpx;
+    font-size: 28rpx;
+    color: #666666;
+    text-align: center;
+    border: 1rpx solid #666666;
+}
+.mul-box{
+    padding-bottom: 60rpx;
+    border-bottom: 1rpx solid #EEEEEE;
+}
+.mul-item{
+    font-size: 28rpx;
+    color: #666666;
+    margin-bottom: 40rpx;
+}
+.mul-item:last-child{
+    margin-bottom: 0;
+}
+.item-label{
+    width: 120rpx;
+    text-align: justify;
+    /* white-space:nowrap; */
+    position: relative;
+}
+.item-label:after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 0;
+   /* position: absolute;
+    top: 0;left: 0; */
+}
+.item-txt{
+    padding-left: 22rpx;
+}
+.link-menu{
+    padding: 40rpx 0;
+}
+.link-item{
+    width: 210rpx;
+    border: 1rpx solid #DDDDDD;
+    border-radius: 30rpx;
+    line-height: 58rpx;
+    font-size: 26rpx;
+    color: #888888;
+    text-align: center;
+}
+.btn-charge{
+    width:100%;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333333;
+    background: #FFE102;
+    border-radius: 40rpx;
+    font-weight: 700;
+    margin-bottom: 100rpx;
+}

@@ -1,0 +1,60 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/introduce/introduce",
+        "pages/plan/index",
+        "pages/plan/setting",
+        "pages/plan/edit",
+        "pages/plan/address",
+        "pages/charge/charge",
+        "pages/complete/complete",
+        "pages/cancel/cancel",
+        "pages/order/order",
+        "pages/comment/comment",
+        "pages/me/index",
+        "pages/me/bill",
+        "pages/me/address",
+        "pages/me/refund",
+        "pages/me/balance",
+        "pages/me/voucher",
+        "pages/test/test",
+        "pages/logs/logs"
+    ],
+    "tabBar": {
+        "color": "#7F8389",
+        "selectedColor": "#000",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [{
+                "pagePath": "pages/index/index",
+                "text": "计划",
+                "iconPath": "./images/tab_icon01.png",
+                "selectedIconPath": "./images/tab_icon01_sel.png"
+            },
+            {
+                "pagePath": "pages/order/order",
+                "text": "订单",
+                "iconPath": "./images/tab_icon02.png",
+                "selectedIconPath": "./images/tab_icon02_sel.png"
+            },
+            {
+                "pagePath": "pages/me/index",
+                "text": "我的",
+                "iconPath": "./images/tab_icon03.png",
+                "selectedIconPath": "./images/tab_icon03_sel.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "按时吃饭",
+        "navigationBarTextStyle": "black"
+    }
+}

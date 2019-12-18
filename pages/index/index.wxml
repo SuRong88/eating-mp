@@ -1,0 +1,97 @@
+<!--pages/test/test.wxml-->
+<view class="container" style="padding-top:376rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <image id="headerBg" mode="widthFix" src="../../images/home_banner.jpg" class="header-bg"></image>
+        <view class="header-content flex-1 flex flex-ver" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-title">
+                按时吃饭
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="tip-box">
+            <view class="tip">推广用户享免费试吃，还有 3 餐</view>
+            <view class="tip-m flex flex-ver flex-align-center">
+                <span>下次送餐日期:</span>
+                <span class="date">
+                    2019-11-19
+                </span>
+                <span>周二</span>
+            </view>
+        </view>
+        <!-- 1还没有计划-->
+        <view wx:if="{{noPlan}}" class="plan-box01">
+            <view class="box01-tip">
+                请点击下方+号，开始制定您的送餐计划
+            </view>
+            <image class="add-icon" mode="aspectFit" src="../../images/home_icon.jpg" alt="">
+            </image>
+        </view>
+        <!-- 2已有计划-->
+        <view wx:else class="plan-box02">
+            <view class="box2-tit">
+                我的送餐计划
+            </view>
+            <view class="day-tit">
+                每周送餐日
+            </view>
+            <view class="day-box flex flex-jcsb">
+                <view class="day-item">
+                    周一
+                </view>
+                <view class="day-item">
+                    周二
+                </view>
+                <view class="day-item">
+                    周三
+                </view>
+                <view class="day-item">
+                    周四
+                </view>
+                <view class="day-item">
+                    周五
+                </view>
+            </view>
+            <view class="mul-box">
+                <view class="mul-item flex">
+                    <view class="item-label">
+                        送达时间:
+                    </view>
+                    <view class="item-txt">
+                        12:00 之前
+                    </view>
+                </view>
+                <view class="mul-item flex">
+                    <view class="item-label">
+                        分 量:
+                    </view>
+                    <view class="item-txt">
+                        中份
+                    </view>
+                </view>
+                <view class="mul-item flex">
+                    <view class="item-label">
+                        口 味:
+                    </view>
+                    <view class="item-txt">
+                        可以常吃辣
+                    </view>
+                </view>
+            </view>
+            <view class="link-menu flex flex-jcsb">
+                <view class="link-item">
+                    调整送餐计划
+                </view>
+                <view class="link-item">
+                    临时取消送餐
+                </view>
+                <view class="link-item">
+                    推荐给同事
+                </view>
+            </view>
+            <view class="btn-charge">
+                预充饭卡
+            </view>
+        </view>
+    </view>
+</view>

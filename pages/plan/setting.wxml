@@ -1,0 +1,138 @@
+<!--pages/plan/setting.wxml-->
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                定制计划-口味
+            </view>
+        </view>
+    </view>
+    <view class="tip-box" wx:if="{{showTip}}">
+        定制成功后，可随时再次进入此页进行修改。
+        <image bindtap="closeTip" class="icon-close" mode="aspectFit" src="../../images/close.png">
+        </image>
+    </view>
+    <view class="content">
+        <view class="setting-box">
+            <view class="setting-item">
+                <view class="item-title">
+                    每周固定在哪几天送餐？
+                </view>
+                <view class="item-main item-main01 flex flex-jcsb">
+                    <view class="main01-item" bindtap="settingHandle01">
+                        周一
+                    </view>
+                    <view class="main01-item">
+                        周二
+                    </view>
+                    <view class="main01-item">
+                        周三
+                    </view>
+                    <view class="main01-item">
+                        周四
+                    </view>
+                    <view class="main01-item">
+                        周五
+                    </view>
+                </view>
+                <view class="tip">
+                    不空出1天去吃吃其他美食？
+                </view>
+            </view>
+            <view class="setting-item">
+                <view class="item-title">
+                    要求送达的时间
+                </view>
+                <view class="item-main item-main02 flex flex-jcsb flex-wrap">
+                    <view class="main02-item">
+                        11:30 之前
+                    </view>
+                    <view class="main02-item">
+                        12:00 之前
+                    </view>
+                    <view class="main02-item">
+                        12:30 之前
+                    </view>
+                    <view class="main02-item">
+                        13:00 之前
+                    </view>
+
+                </view>
+            </view>
+            <view class="setting-item">
+                <view class="item-title">
+                    每次饭菜的分量
+                </view>
+                <view class="item-main item-main03 flex flex-jcsb">
+                    <view class="main03-item">
+                        <view class="price-box">
+                            中份，<span class="price">12</span> 元/份
+                        </view>
+                        <view class="desc">
+                            <view>
+                                2荤1素配汤，分量适中
+                            </view>
+                            <view>
+                                适合通常男性
+                            </view>
+                        </view>
+                    </view>
+                    <view class="main03-item">
+                        <view class="price-box">
+                            小份，<span class="price">10</span> 元/份
+                        </view>
+                        <view class="desc">
+                            <view>
+                                2荤1素配汤，分量较小
+                            </view>
+                            <view>
+                                适合通常女性
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+            <view class="setting-item ">
+                <view class="item-title">
+                    是否吃辣
+                </view>
+                <view class="item-main item-main04 flex flex-jcsb">
+                    <view class="main04-item is-checked">
+                        从不吃辣
+                    </view>
+                    <view class="main04-item">
+                        偶尔吃辣
+                    </view>
+
+                    <view class="main04-item">
+                        可常吃辣
+                    </view>
+
+                </view>
+            </view>
+            <view class="setting-item">
+                <view class="item-title">
+                    可联系到您的手机号码
+                </view>
+                <view class="item-main item-main05">
+                    <input class="phone" value="{{phone}}" placeholder="请输入联系手机号码" placeholder-class="input-placeholder"
+                        type="number" confirm-type="" />
+                    <!-- </input> -->
+                </view>
+                <view class="tip">
+                    仅提供给送餐员，方便其在必要时与您联系。
+                </view>
+            </view>
+        </view>
+
+
+        <view bindtap = "nextStep" class="btn-next">
+            下一步
+        </view>
+    </view>
+</view>
