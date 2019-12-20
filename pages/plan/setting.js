@@ -45,7 +45,6 @@ VM.settingHandle04 = function() {
 VM.nextStep = function() {
     console.log(233)
     util.showModal('提示','下一步',true,'取消','确定')
-    // util.To
 }
 VM.onLoad = function(query) {
     this.init()

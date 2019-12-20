@@ -1,2 +1,55 @@
-<!--pages/charge/charge.wxml-->
-<text>pages/charge/charge.wxml</text>
+<!--pages/plan/charge.wxml-->
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                充值饭卡
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="charge-box">
+            <view class="title-box flex flex-ver">
+                <view class="charge-title">
+                    选择预充金额
+                </view>
+                <view class="title-tip">
+                    首次预充，满50送50
+                </view>
+            </view>
+            <view class="price-box clearfix">
+                <view wx:for="{{priceList}}" wx:key="index" wx:for-index="index" wx:for-item="item" class="price-item fl">
+                    <view data-index = "{{index}}" bindtap="checkedHandle" class="price {{checkedIndex==index?'is-checked':''}}">
+                        {{item.price}} 元
+                    </view>
+                    <view class="price-desc">
+                        {{item.desc}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="pay-tip">
+            上次预充在 2019年3月3日，金额 200 元
+        </view>
+        <view bindtap="payHandle" class="btn-pay">
+            支付
+        </view>
+        <view class="charge-tip">
+            <view class="tip-item">
+
+                * 每餐优惠对应的有效期：在每次预充完成后即刻生效，直至下次预充后再根据新的预充金额，产生对应的每餐优惠额度。
+            </view>
+            <view class="tip-item">
+                如之前预充了100元，使用50后还剩50，这时再充300元，则钱包内的350元都可享受1元的每餐优惠，直至下次新的预充。
+                但反之，如果新预充了50或100元后，无论钱包余额多少、无论是否有在享受每餐优惠，预充完成后都无法再享受任何每餐优惠。
+            </view>
+            <view class="tip-item">
+                * 预充款可随时在“我的”页面申请退款
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,2 +1,38 @@
 <!--pages/me/bill.wxml-->
-<text>pages/me/bill.wxml</text>
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                账单明细
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="bill-box">
+            <view wx:for = "{{6}}" class="bill-item flex flex-ver flex-jcsb">
+                <view class="item-l ">
+                    <view class="item-txt">
+                        充值
+                    </view>
+                    <view class="item-date">
+                        2019-11-11
+                    </view>
+                </view>
+                <view class="item-r">
+                    <view class="item-change text-r">
+                        <text class="change-txt01">+</text>
+                        <text class="change-txt02">100.00</text>
+                    </view>
+                    <view class="item-balance">
+                        <text class="balance-txt01">余额：</text>
+                        <text class="balance-txt02">100.00</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

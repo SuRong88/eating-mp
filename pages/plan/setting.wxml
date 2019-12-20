@@ -131,7 +131,7 @@
         </view>
 
 
-        <view bindtap = "nextStep" class="btn-next">
+        <view bindtap="nextStep" class="btn-next">
             下一步
         </view>
     </view>

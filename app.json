@@ -17,7 +17,10 @@
         "pages/me/refund",
         "pages/me/balance",
         "pages/me/voucher",
-        "pages/test/test",
+        "pages/toggle/toggle",
+        "pages/operate/operate",
+        "pages/packer/packer",
+        "pages/deliver/deliver",
         "pages/logs/logs"
     ],
     "tabBar": {

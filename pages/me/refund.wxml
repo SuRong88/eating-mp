@@ -1,2 +1,41 @@
 <!--pages/me/refund.wxml-->
-<text>pages/me/refund.wxml</text>
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                余额提现
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="banner flex flex-center">
+            <view class="account">
+                <text class="num">235</text>
+                <text>元</text>
+            </view>
+            <view class="desc">
+                当前余额
+            </view>
+        </view>
+        <view class="refund-main">
+            <view class="btn-refund">全部提现</view>
+            <view class="refund-desc">
+                <view class="desc-title"> 退款说明</view>
+                <view class="desc-txt">
+                    * 每月仅可进行一次退款，款项将退还到您微信钱包的零钱里，申请后24小时内到账。
+                </view>
+                <view class="desc-txt">
+                    * 超过1000元的退款，将收取5%的手续费。
+                </view>
+            </view>
+            <button open-type='contact' session-from='' class="btn-service flex flex-ver flex-align-center">
+                <image mode="aspectFit" class="icon-service" src="../../images/Order_icon01.png"></image>
+                <text>联系客服</text>
+            </button>
+        </view>
+    </view>
+</view>

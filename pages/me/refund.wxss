@@ -1,1 +1,91 @@
 /* pages/me/refund.wxss */
+page {
+    background-color: #f5f5f5;
+}
+
+.header {
+    background: #FFE200;
+}
+
+.header-content {}
+
+.container {
+    padding-bottom: 100rpx;
+}
+
+.content {}
+
+.banner {
+    height: 220rpx;
+    background: #FFE200;
+}
+
+.account {
+    margin-bottom: 20rpx;
+    font-size: 26rpx;
+    color: #030303;
+    font-weight: 700;
+    text-align: center;
+}
+
+.num {
+    margin-right: 14rpx;
+    font-weight: 700;
+    font-size: 50rpx;
+}
+
+.desc {
+    font-size: 26rpx;
+    color: #333333;
+}
+
+.refund-main {
+    padding: 0 30rpx;
+}
+
+.refund-desc {
+    margin-bottom: 56rpx;
+}
+
+.desc-title {
+    font-size: 30rpx;
+    color: #333333;
+    font-weight: 700;
+    margin-bottom: 10rpx;
+}
+
+.desc-txt {
+    font-size: 26rpx;
+    color: #999;
+    text-align: justify;
+    line-height: 48rpx;
+}
+
+.btn-refund {
+    width: 100%;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333333;
+    background: #FFE102;
+    border-radius: 40rpx;
+    font-weight: 700;
+    margin: 60rpx 0 50rpx;
+}
+
+.btn-service {
+    width: 240rpx;
+    line-height: 62rpx;
+    margin: 0 auto;
+    text-align: center;
+    border: 1rpx solid #DDDDDD;
+    border-radius: 32rpx;
+    font-size: 28rpx;
+    color: #666666;
+}
+
+.icon-service {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 10rpx;
+}

@@ -1,2 +1,26 @@
 <!--pages/complete/complete.wxml-->
-<text>pages/complete/complete.wxml</text>
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                {{tipList[currentIndex].pageTitle}}
+            </view>
+        </view>
+    </view>
+    <view class="content text-c">
+        <image class="icon-complete" src="../../images/finish.png"></image>
+        <view class="txt-box">
+            <view class="tip">
+                {{tipList[currentIndex].tipTitle}}
+            </view>
+            <view wx:if="{{tipList[currentIndex].tipDesc}}" class="tip-desc">
+                {{tipList[currentIndex].tipDesc}}
+            </view>
+        </view>
+        <view class="btn btn-complete">完成</view>
+    </view>
+</view>

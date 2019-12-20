@@ -1,5 +1,4 @@
 /* pages/plan/setting.wxss */
-/* pages/introduce/introduce.wxss */
 .header {
     background: #FFE200;
 }

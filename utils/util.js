@@ -18,13 +18,20 @@ function space(str) {
     var str = str.replace(/&amp;nbsp;/g, '');
     return str
 }
-
+function Toast(msg) {
+    wx.showToast({
+        title: msg,
+        icon: 'none',
+        duration: 2000
+    })
+}
 // 信息验证报错
 // 表单错误信息提示
 function errorToast(msg) {
     wx.showToast({
         title: msg,
-        icon: 'none',
+        // 没有这个
+        // icon: 'error',
         duration: 2000
     })
 }
@@ -81,12 +88,18 @@ function setHeader(that) {
         }
     })
 }
+// 简便获取 e.currentTarget.dataset 某个key值
+function dataset(e, key) {
+    return e.currentTarget.dataset[key];
+}
 module.exports = {
     formatTime: formatTime,
     space: space,
+    Toast: Toast,
     errorToast: errorToast,
     successToast: successToast,
     showLoading: showLoading,
     showModal: showModal,
-    setHeader: setHeader
+    setHeader: setHeader,
+    dataset: dataset
 }

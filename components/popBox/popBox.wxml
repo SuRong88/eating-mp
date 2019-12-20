@@ -1,0 +1,14 @@
+<!--自定义弹窗-->
+<view class='popBox'>
+    <form bindsubmit='confirmHandle' bindreset='concelHandle'>
+        <view class='pop'>
+            <view class='pop_con'>
+                <view>自定义內容</view>
+            </view>
+            <view class='pop_btnBox'>
+                <button formType="reset" plain='true' class='pop_btn cancel'>取消</button>
+                <button formType="submit" plain='true' class='pop_btn submit'>确定</button>
+            </view>
+        </view>
+    </form>
+</view>

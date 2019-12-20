@@ -1,1 +1,15 @@
 /* pages/me/balance.wxss */
+page{
+    background-color: #f5f5f5;
+}
+.header {
+    background: #FFE200;
+}
+.header-content {
+}
+.container{
+    padding-bottom: 100rpx;
+}
+.content {
+    padding: 0 30rpx;
+}

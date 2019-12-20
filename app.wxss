@@ -13,6 +13,10 @@ page {
 
 }
 
+.container {
+    height: 100%;
+}
+
 .wrapper {
     width: 94%;
     margin: 0 auto;
@@ -54,123 +58,12 @@ button::after {
     border: none;
 }
 
+image {
+    vertical-align: middle;
+}
+
 /*****************************/
 
-/**************自定义弹窗****************/
-
-.popBox {
-    align-items: center;
-    background: rgba(0, 0, 0, .6);
-    display: flex;
-    flex-direction: column;
-    font-family: PingFangSC-Regular;
-    justify-content: center;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10000;
-}
-
-.popBox form {
-    width: 80%;
-}
-
-.popBox .pop {
-    align-items: center;
-    background-color: #fff;
-    border-radius: 10rpx;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    /*width: 72%;*/
-}
-
-.pop_close {
-    position: absolute;
-    z-index: 200;
-    right: 36rpx;
-    top: 36rpx;
-    width: 32rpx;
-    height: 32rpx;
-}
-
-.pop_tit {
-    color: #000;
-    font-size: 34rpx;
-    line-height: 44rpx;
-    letter-spacing: 6rpx;
-    padding: 50rpx 40rpx 20rpx 40rpx;
-    text-align: center;
-}
-
-.pop_con {
-    box-sizing: border-box;
-    max-height: 60vh;
-    overflow-y: scroll;
-    padding: 36rpx 40rpx;
-    width: 100%;
-}
-
-.pop_con .tip {
-    color: #333;
-    font-size: 36rpx;
-    line-height: 50rpx;
-    padding: 40rpx 0;
-    text-align: center;
-}
-
-.pop_btnBox {
-    align-items: center;
-    border-top: 2rpx solid #ddd;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
-.pop_btn {
-    border-radius: 0 !important;
-    box-sizing: border-box;
-    font-size: 32rpx;
-    height: 0;
-    line-height: 0;
-    flex: 1;
-    padding: 40rpx 0 !important;
-    position: relative;
-    text-align: center;
-    /*width: 50%;*/
-}
-
-.pop_btn.cancel {
-    border: none;
-    color: #999;
-}
-
-.pop_btn.cancel:before {
-    background-color: #E5E5E5;
-    content: '';
-    margin: auto;
-    position: absolute;
-    z-index: 100;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 2rpx;
-    height: 64rpx;
-}
-
-.pop_btn.submit {
-    border: none;
-    color: #000;
-}
-
-.pop_btn:active {
-    background-color: #D2D3D5;
-}
 
 /* */
 view,
@@ -397,40 +290,30 @@ button::after {
     align-items: center;
     z-index: 99;
 }
-.header-content{
-   /* padding-left: 40rpx; */
-   position: relative;
+
+.header-content {
+    position: relative;
 }
-.header-back{
+
+.header-back {
     position: absolute;
     left: 46rpx;
     top: 50%;
     transform: translateY(-50%);
 }
-.header-icon-back{
+
+.header-icon-back {
     width: 36rpx;
     height: 42rpx;
 }
-.header-title{
+
+.header-title {
     font-size: 34rpx;
     color: #030303;
     font-weight: 700;
     position: relative;
     z-index: 999;
 }
-/* .header .header-bg {
-    position: absolute;
-    left: 0;
-    top: 0rpx;
-    width: 100vw;
-    z-index: 900;
-}
 
-.header .header-logo {
-    position: absolute;
-    width: 170rpx;
-    height: 60rpx;
-    z-index: 999;
-    left: 40rpx;
-}
- */
+/* popBox自定义弹窗样式 */
+@import "components/popBox/popBox.wxss";

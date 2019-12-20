@@ -94,4 +94,23 @@
             </view>
         </view>
     </view>
+    <view class="index-mask">
+        <view class="m-con">
+            <image class="m-icon-close" src="../../images/close.png" mode=""></image>
+            <image class="m-bg" src="../../images/home_banner.jpg" mode=""></image>
+            <view class="m-main">
+                <image class="m-icon" src="../../images/tip_icon01.png" mode=""></image>
+                <view class="m-title">
+                    亲爱的用户
+                </view>
+                <view class="m-txt">
+                    <text>感谢您的信任选择我们</text>
+                    <text>也为自己选择了一份健康、合口味的午餐</text>
+                </view>
+            </view>
+            <view class="m-bottom flex flex-center">
+                <image mode="widthFix" class="m-tip-img" src="../../images/tip_img2.png" mode=""></image>
+            </view>
+        </view>
+    </view>
 </view>

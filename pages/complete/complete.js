@@ -1,66 +1,82 @@
-// pages/complete/complete.js
-Page({
+//complete.js
+//获取应用实例
+const app = getApp()
+import formcheck from '../../utils/formcheck.js'
+import util from '../../utils/util.js'
+var VM = {
+    data: {
+        currentIndex: 0,
+        tipList: [{
+                pageTitle: '定制完成',
+                tipTitle: '定制完成',
+                tipDesc: '在送餐日，坐享卫生健康合口味的午餐吧'
+            },
+            {
+                pageTitle: '提交成功',
+                tipTitle: '提交成功',
+                tipDesc: ''
+            },
+            {
+                pageTitle: '提现成功',
+                tipTitle: '提现成功',
+                tipDesc: '款项将退还到您微信钱包的零钱，申请后24小时内到账。'
+            }
+        ]
+    }
+}
+VM.init = function(type) {
+    // 设置自定义头部
+    util.setHeader(this);
+    switch (type) {
+        case 'custom':
+            this.setData({
+                currentIndex: 0
+            })
+            break;
+        case 'submit':
+            this.setData({
+                currentIndex: 1
+            })
+            break;
+        case 'withdraw':
+            this.setData({
+                currentIndex: 2
+            })
+            break;
+        default:
+            break;
+    }
+}
+// 点击完成
+VM.completeHandle = function() {}
+VM.onLoad = function(query) {
+    this.init(query.type)
+}
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+VM.onReady = function() {
 
-  },
+}
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+VM.onShow = function() {
 
-  },
+}
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+VM.onHide = function() {
 
-  },
+}
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+VM.onUnload = function() {
 
-  },
+}
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+VM.onPullDownRefresh = function() {
 
-  },
+}
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+VM.onReachBottom = function() {
 
-  },
+}
+VM.onShareAppMessage = function() {
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+}
+Page(VM)

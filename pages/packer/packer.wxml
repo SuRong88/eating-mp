@@ -1,0 +1,43 @@
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                打包员
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="role-box">
+            <image mode="widthFix" class="role-img" src="../../images/img01.png"></image>
+            <view class="operate-box">
+                <view class="operate-item">
+                    <view class="number-box">
+                        <view wx:for="{{2}}" class="number-item">
+                            MRXD00321
+                        </view>
+                    </view>
+                    <view bindtap="" class="btn-scan">
+                        餐盒扫码
+                    </view>
+                </view>
+                <view class="operate-item">
+                    <view class="number-box">
+                        <view class="number-item">
+                            MRXD00321
+                        </view>
+                    </view>
+                    <view bindtap="" class="btn-scan">
+                        保温箱扫码
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="" class="btn-submit {{isDisabled?'is-disabled':''}}">
+            提交
+        </view>
+    </view>
+</view>

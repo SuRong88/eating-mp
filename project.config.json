@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 24,
 			"list": [
 				{
 					"id": -1,
@@ -88,10 +88,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "complete",
+					"id": 7,
+					"name": "提交成功",
 					"pathName": "pages/complete/complete",
-					"query": "",
+					"query": "type=submit",
 					"scene": null
 				},
 				{
@@ -123,37 +123,37 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 12,
 					"name": "me-bill",
-					"pathName": "pages/bill/bill",
+					"pathName": "pages/me/bill",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 13,
 					"name": "me-address",
-					"pathName": "pages/address/address",
+					"pathName": "pages/me/address",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 14,
 					"name": "me-refund",
-					"pathName": "pages/refund/refund",
+					"pathName": "pages/me/refund",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 15,
 					"name": "me-balance",
-					"pathName": "pages/balance/balance",
+					"pathName": "pages/me/balance",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 16,
 					"name": "me-voucher",
-					"pathName": "pages/voucher/voucher",
+					"pathName": "pages/me/voucher",
 					"query": "",
 					"scene": null
 				},
@@ -168,6 +168,48 @@
 					"id": -1,
 					"name": "index",
 					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提现成功",
+					"pathName": "pages/complete/complete",
+					"query": "type=withdraw",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "定制成功",
+					"pathName": "pages/complete/complete",
+					"query": "custom",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "操作端",
+					"pathName": "pages/operate/operate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "打包员",
+					"pathName": "pages/packer/packer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "配送员",
+					"pathName": "pages/deliver/deliver",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "终端身份",
+					"pathName": "pages/toggle/toggle",
 					"query": "",
 					"scene": null
 				}

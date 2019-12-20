@@ -1,66 +1,61 @@
-// pages/me/voucher.js
-Page({
+//获取应用实例
+const app = getApp()
+import formcheck from '../../utils/formcheck.js'
+import util from '../../utils/util.js'
+var VM = {
+    data: {
+      // 导航下标
+      navIndex:0,
+      // 是否已使用
+      used:true
+    }
+}
+VM.init = function(type) {
+    // 设置自定义头部
+    util.setHeader(this);
+}
+VM.navToggle = function(e){
+    var navIndex =  util.dataset(e,'index')
+     if ( navIndex==0) {
+        this.setData({
+           navIndex:navIndex,
+           used:false
+        }) 
+     } else{
+        this.setData({
+            navIndex:navIndex,
+            used:true
+         }) 
+     }
+}
+VM.onLoad = function(query) {
+    this.init(query)
+}
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+VM.onReady = function() {
 
-  },
+}
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+VM.onShow = function() {
 
-  },
+}
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+VM.onHide = function() {
 
-  },
+}
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+VM.onUnload = function() {
 
-  },
+}
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+VM.onPullDownRefresh = function() {
+    wx.stopPullDownRefresh()
+}
 
-  },
+VM.onReachBottom = function() {
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+}
+VM.onShareAppMessage = function() {
 
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+}
+Page(VM)

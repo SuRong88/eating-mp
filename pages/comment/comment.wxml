@@ -1,2 +1,75 @@
 <!--pages/comment/comment.wxml-->
-<text>pages/comment/comment.wxml</text>
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                评价和投诉
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="food-box">
+            <view wx:for='{{10}}' wx:for-item='item' class="food-item">
+                <view class="item-title">
+                    凉瓜牛肉{{item}}
+                </view>
+                <view class="food-bt flex flex-ver flex-jcsb">
+                    <view class="select-menu flex">
+                        <view class="select-item flex flex-ver">
+                            <image src="../../images/Order_icon01_sel.png" mode="aspectFit" class="icon-feeling">
+                            </image>
+                            <span>
+                                不吃
+                            </span>
+                        </view>
+                        <view class="select-item flex flex-ver">
+                            <image src="../../images/Order_icon02_sel.png" mode="aspectFit" class="icon-feeling">
+                            </image>
+                            <span>
+                                喜欢
+                            </span>
+                        </view>
+                    </view>
+                    <view class="btn-complaint {{index%2==0?'is-disabled':''}}">{{index%2==1?'已投诉':'投诉'}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="desc-box">
+            <view class="desc-txt">
+                *选择“不吃”后，以后将不会再为你配送该菜式。
+                *选择“喜欢”后，将适当提高为你配送该菜式的频率。
+            </view>
+            <view class="desc-txt">
+                *如果觉得该菜式的分量、口味较之前有可感知的品质下降，请点“投诉”，我们会非常重视你的意见并会认真积极改进。
+            </view>
+        </view>
+    </view>
+    <view bindtap="hideMask" wx:if="{{showMask}}" class="reason-mask flex flex-center">
+        <view class="reason-content">
+            <view class="reason-title">
+                请选择投诉的原因：
+            </view>
+            <view class="reason-box">
+                <view data-index='0' catchtap="reasonSelect" class="reason-item flex flex-ver">
+                    <image src="{{reasonIndex==0?'../../images/Radio_sel.png':'../../images/Radio.png'}}" mode="aspectFit"
+                        class="icon-reason">
+                    </image>
+                    <text class="reason-txt">分量不足</text>
+                </view>
+                <view data-index='1' catchtap="reasonSelect" class="reason-item flex flex-ver">
+                    <image src="{{reasonIndex==1?'../../images/Radio_sel.png':'../../images/Radio.png'}}" mode="aspectFit"
+                        class="icon-reason">
+                    </image>
+                    <text class="reason-txt">口味下降</text>
+                </view>
+            </view>
+            <view class="btn-submit">
+                提交投诉
+            </view>
+        </view>
+    </view>
+</view>

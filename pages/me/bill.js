@@ -1,66 +1,45 @@
-// pages/me/bill.js
-Page({
+//获取应用实例
+const app = getApp()
+import formcheck from '../../utils/formcheck.js'
+import util from '../../utils/util.js'
+var VM = {
+    data: {
+      
+    }
+}
+VM.init = function(type) {
+    // 设置自定义头部
+    util.setHeader(this);
+}
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+VM.onLoad = function(query) {
+    this.init(query)
+}
 
-  },
+VM.onReady = function() {
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+}
 
-  },
+VM.onShow = function() {
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+}
 
-  },
+VM.onHide = function() {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+}
 
-  },
+VM.onUnload = function() {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+}
 
-  },
+VM.onPullDownRefresh = function() {
+    wx.stopPullDownRefresh()
+}
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+VM.onReachBottom = function() {
 
-  },
+}
+VM.onShareAppMessage = function() {
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+}
+Page(VM)
