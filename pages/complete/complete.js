@@ -3,6 +3,7 @@
 const app = getApp()
 import formcheck from '../../utils/formcheck.js'
 import util from '../../utils/util.js'
+import base from '../../utils/base.js'
 var VM = {
     data: {
         currentIndex: 0,
@@ -51,6 +52,7 @@ VM.init = function(type) {
 VM.completeHandle = function() {}
 VM.onLoad = function(query) {
     this.init(query.type)
+    base.onLoad(this)
 }
 
 VM.onReady = function() {

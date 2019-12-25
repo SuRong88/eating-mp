@@ -54,49 +54,46 @@
             </view>
             <view class="mul-box">
                 <view class="mul-item flex">
-                    <view class="item-label">
-                        送达时间:
-                    </view>
+                    <view class="item-label">送达时间</view>
+                    <text>:</text>
                     <view class="item-txt">
                         12:00 之前
                     </view>
                 </view>
                 <view class="mul-item flex">
-                    <view class="item-label">
-                        分 量:
-                    </view>
+                    <view class="item-label">分量</view>
+                    <text>:</text>
                     <view class="item-txt">
                         中份
                     </view>
                 </view>
                 <view class="mul-item flex">
-                    <view class="item-label">
-                        口 味:
-                    </view>
+                    <view class="item-label">口味</view>
+                    <text>:</text>
                     <view class="item-txt">
                         可以常吃辣
                     </view>
                 </view>
             </view>
             <view class="link-menu flex flex-jcsb">
-                <view class="link-item">
+                <view class="link-item" bindtap="base_jump" data-url="/pages/plan/edit/edit">
                     调整送餐计划
                 </view>
-                <view class="link-item">
+                <view class="link-item" bindtap="base_jump" data-url="/pages/cancel/cancel">
                     临时取消送餐
                 </view>
-                <view class="link-item">
+                <button class="link-item" open-type="share">
                     推荐给同事
-                </view>
+                </button>
             </view>
-            <view class="btn-charge">
+            <view class="btn-charge" bindtap="base_jump" data-url="/pages/charge/charge">
                 预充饭卡
             </view>
         </view>
     </view>
-    <view class="index-mask">
+    <view class="index-mask" wx:if="{{showWelcome}}">
         <view class="m-con">
-            <image class="m-icon-close" src="../../images/close.png" mode=""></image>
+            <image bindtap="closeWelcome" class="m-icon-close" src="../../images/icon-close.png" mode=""></image>
             <image class="m-bg" src="../../images/home_banner.jpg" mode=""></image>
             <view class="m-main">
                 <image class="m-icon" src="../../images/tip_icon01.png" mode=""></image>

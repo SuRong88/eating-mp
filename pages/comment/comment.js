@@ -3,9 +3,10 @@
 const app = getApp()
 import formcheck from '../../utils/formcheck.js'
 import util from '../../utils/util.js'
+import base from '../../utils/base.js'
 var VM = {
     data: {
-        showMask:true,
+        showMask:false,
         reasonIndex:0
     }
 }
@@ -19,7 +20,19 @@ VM.reasonSelect = function(e){
         reasonIndex:util.dataset(e,'index')
     })
 }
-
+// 投诉 
+VM.complaint = function(){
+    this.setData({
+       showMask:true 
+    })
+}
+// 提交投诉
+VM.submitHandle = function(){
+    util.successToast('投诉成功')
+    this.setData({
+       showMask:false 
+    })
+}
 VM.hideMask = function(){
     this.setData({
        showMask:false 
@@ -27,6 +40,7 @@ VM.hideMask = function(){
 }
 VM.onLoad = function(query) {
     this.init(query)
+    base.onLoad(this)
 }
 
 VM.onReady = function() {

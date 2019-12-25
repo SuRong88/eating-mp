@@ -2,8 +2,8 @@
 <view class="container" style="padding-top:{{padHeight}}rpx;">
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
-            <view class="header-back">
-                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+            <view class="header-back" wx:if = "{{!isHome}}" bindtap="returnBack">
+                <image class="header-icon-back" mode="aspectFit" src="../../../images/icon-back.png">
                 </image>
             </view>
             <view class="header-title">
@@ -43,9 +43,9 @@
                         使用日期：2019-11-22
                     </view>
                 </view>
-                <image wx:if="{{!used}}" mode="scaleToFill" src="../../images/Coupon01.png" class="voucher-item-bg">
+                <image wx:if="{{!used}}" mode="scaleToFill" src="../../../images/Coupon01.png" class="voucher-item-bg">
                 </image>
-                <image wx:else mode="scaleToFill" src="../../images/Coupon02.png" class="voucher-item-bg">
+                <image wx:else mode="scaleToFill" src="../../../images/Coupon02.png" class="voucher-item-bg">
                 </image>
             </view>
         </view>

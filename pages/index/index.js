@@ -1,41 +1,25 @@
-//index.js
-//获取应用实例
 const app = getApp()
 import formcheck from '../../utils/formcheck.js'
 import util from '../../utils/util.js'
+import base from '../../utils/base.js'
 var VM = {
     data: {
-        // headBarHeight: 0,
-        // padHeight: 0,
-        noPlan:false
-        // headerHeight: 0,
+        showWelcome: false,
+        noPlan: false
     }
 }
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
-    // setTimeout(()=>{
-    //     var query = wx.createSelectorQuery();
-    //     query.select('#headerBg').boundingClientRect(rect => {
-    //         this.setData({
-    //             headerHeight: rect.height + 'px'
-    //         })
-    //         console.log(rect)
-    //     }).exec();
-    // },1000)
 }
-
+VM.closeWelcome = function() {
+    this.setData({
+        showWelcome: false
+    })
+}
 VM.onLoad = function(query) {
     this.init()
-    // wx.getSystemInfo({
-    //     success: res => {
-    //         this.setData({
-    //             headBarHeight: res.statusBarHeight / (res.windowWidth / 750),
-    //             padHeight: res.statusBarHeight / (res.windowWidth / 750) + 88
-    //         })
-    //         console.log(res.statusBarHeight / (res.windowWidth / 750))
-    //     }
-    // })
+    base.onLoad(this)
 }
 
 VM.onReady = function() {
@@ -62,6 +46,10 @@ VM.onReachBottom = function() {
 
 }
 VM.onShareAppMessage = function() {
-
+    return {
+        title: "按时吃饭",
+        path: '/pages/index/index',
+        imageUrl: '', //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+    };
 }
 Page(VM)

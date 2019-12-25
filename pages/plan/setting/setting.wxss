@@ -54,7 +54,7 @@
 
 .main01-item.is-checked,
 .main02-item.is-checked,
-.main03-item.is-checked,
+.main03-item.is-checked .price-box,
 .main04-item.is-checked {
     position: relative;
     border: 1rpx solid #FF8800;
@@ -62,7 +62,7 @@
 
 .main01-item.is-checked:after,
 .main02-item.is-checked:after,
-.main03-item.is-checked:after,
+.main03-item.is-checked .price-box:after,
 .main04-item.is-checked:after {
     content: '';
     display: block;

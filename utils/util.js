@@ -18,6 +18,7 @@ function space(str) {
     var str = str.replace(/&amp;nbsp;/g, '');
     return str
 }
+// 简易提示框
 function Toast(msg) {
     wx.showToast({
         title: msg,
@@ -88,7 +89,7 @@ function setHeader(that) {
         }
     })
 }
-// 简便获取 e.currentTarget.dataset 某个key值
+// 获取 e.currentTarget.dataset 某个key值
 function dataset(e, key) {
     return e.currentTarget.dataset[key];
 }

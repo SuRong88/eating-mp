@@ -1,7 +1,8 @@
 //获取应用实例
 const app = getApp()
-import formcheck from '../../utils/formcheck.js'
-import util from '../../utils/util.js'
+import formcheck from '../../../utils/formcheck.js'
+import util from '../../../utils/util.js'
+import base from '../../../utils/base.js'
 var VM = {
     data: {
       
@@ -12,12 +13,9 @@ VM.init = function(type) {
     util.setHeader(this);
 }
 
-
-
-
-
 VM.onLoad = function(query) {
     this.init(query)
+    base.onLoad(this)
 }
 
 VM.onReady = function() {

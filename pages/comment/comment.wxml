@@ -2,7 +2,7 @@
 <view class="container" style="padding-top:{{padHeight}}rpx;">
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
-            <view class="header-back">
+            <view class="header-back" wx:if = "{{!isHome}}" bindtap = "returnBack">
                 <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
                 </image>
             </view>
@@ -34,7 +34,8 @@
                             </span>
                         </view>
                     </view>
-                    <view class="btn-complaint {{index%2==0?'is-disabled':''}}">{{index%2==1?'已投诉':'投诉'}}</view>
+                    <view wx:if = "{{index%2==0}}" class="btn-complaint is-disabled">已投诉</view>
+                    <view wx:else class="btn-complaint " bindtap="complaint">投诉</view>
                 </view>
             </view>
         </view>
@@ -49,7 +50,7 @@
         </view>
     </view>
     <view bindtap="hideMask" wx:if="{{showMask}}" class="reason-mask flex flex-center">
-        <view class="reason-content">
+        <view class="reason-content" catchtap="noFunc">
             <view class="reason-title">
                 请选择投诉的原因：
             </view>
@@ -67,7 +68,7 @@
                     <text class="reason-txt">口味下降</text>
                 </view>
             </view>
-            <view class="btn-submit">
+            <view class="btn-submit" catchtap="submitHandle">
                 提交投诉
             </view>
         </view>

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -19,6 +19,8 @@
 		"hidedInDevtools": []
 	},
 	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -55,28 +57,28 @@
 				{
 					"id": -1,
 					"name": "plan-index",
-					"pathName": "pages/plan/index",
+					"pathName": "pages/plan/index/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "plan-setting",
-					"pathName": "pages/plan/setting",
+					"pathName": "pages/plan/setting/setting",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "plan-edit",
-					"pathName": "pages/plan/edit",
+					"pathName": "pages/plan/edit/edit",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "plan-address",
-					"pathName": "pages/plan/address",
+					"pathName": "pages/plan/address/address",
 					"query": "",
 					"scene": null
 				},
@@ -118,42 +120,42 @@
 				{
 					"id": -1,
 					"name": "me-index",
-					"pathName": "pages/me/index",
+					"pathName": "pages/me/index/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 12,
 					"name": "me-bill",
-					"pathName": "pages/me/bill",
+					"pathName": "pages/me/bill/bill",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 13,
 					"name": "me-address",
-					"pathName": "pages/me/address",
+					"pathName": "pages/me/address/address",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 14,
 					"name": "me-refund",
-					"pathName": "pages/me/refund",
+					"pathName": "pages/me/refund/refund",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 15,
 					"name": "me-balance",
-					"pathName": "pages/me/balance",
+					"pathName": "pages/me/balance/balance",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 16,
 					"name": "me-voucher",
-					"pathName": "pages/me/voucher",
+					"pathName": "pages/me/voucher/voucher",
 					"query": "",
 					"scene": null
 				},

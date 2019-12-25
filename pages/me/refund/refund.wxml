@@ -2,8 +2,8 @@
 <view class="container" style="padding-top:{{padHeight}}rpx;">
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
-            <view class="header-back">
-                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+            <view class="header-back" wx:if = "{{!isHome}}" bindtap="returnBack"> 
+                <image class="header-icon-back" mode="aspectFit" src="../../../images/icon-back.png">
                 </image>
             </view>
             <view class="header-title">
@@ -22,7 +22,7 @@
             </view>
         </view>
         <view class="refund-main">
-            <view class="btn-refund">全部提现</view>
+            <view class="btn-refund" bindtap='refundHandle'>全部提现</view>
             <view class="refund-desc">
                 <view class="desc-title"> 退款说明</view>
                 <view class="desc-txt">
@@ -33,9 +33,14 @@
                 </view>
             </view>
             <button open-type='contact' session-from='' class="btn-service flex flex-ver flex-align-center">
-                <image mode="aspectFit" class="icon-service" src="../../images/Order_icon01.png"></image>
+                <image mode="aspectFit" class="icon-service" src="../../../images/icon-service.png"></image>
                 <text>联系客服</text>
             </button>
         </view>
     </view>
+    <v-popBox wx:if='{{show}}' bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
+        <view class="text-c">
+            <text>{{showTexts[showIndex]}}</text>
+        </view>
+    </v-popBox>
 </view>

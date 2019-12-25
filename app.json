@@ -2,25 +2,26 @@
     "pages": [
         "pages/index/index",
         "pages/introduce/introduce",
-        "pages/plan/index",
-        "pages/plan/setting",
-        "pages/plan/edit",
-        "pages/plan/address",
+        "pages/plan/index/index",
+        "pages/plan/setting/setting",
+        "pages/plan/edit/edit",
+        "pages/plan/address/address",
         "pages/charge/charge",
         "pages/complete/complete",
         "pages/cancel/cancel",
         "pages/order/order",
         "pages/comment/comment",
-        "pages/me/index",
-        "pages/me/bill",
-        "pages/me/address",
-        "pages/me/refund",
-        "pages/me/balance",
-        "pages/me/voucher",
+        "pages/me/index/index",
+        "pages/me/bill/bill",
+        "pages/me/address/address",
+        "pages/me/refund/refund",
+        "pages/me/balance/balance",
+        "pages/me/voucher/voucher",
         "pages/toggle/toggle",
         "pages/operate/operate",
         "pages/packer/packer",
         "pages/deliver/deliver",
+        "pages/test/test",
         "pages/logs/logs"
     ],
     "tabBar": {
@@ -41,7 +42,7 @@
                 "selectedIconPath": "./images/tab_icon02_sel.png"
             },
             {
-                "pagePath": "pages/me/index",
+                "pagePath": "pages/me/index/index",
                 "text": "我的",
                 "iconPath": "./images/tab_icon03.png",
                 "selectedIconPath": "./images/tab_icon03_sel.png"
@@ -55,7 +56,8 @@
         "downloadFile": 10000
     },
     "window": {
-        "backgroundTextStyle": "light",
+        "backgroundColor":"#fff",
+        "backgroundTextStyle": "dark",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "按时吃饭",
         "navigationBarTextStyle": "black"

@@ -303,7 +303,7 @@ button::after {
 }
 
 .header-icon-back {
-    width: 36rpx;
+    width: 42rpx;
     height: 42rpx;
 }
 
@@ -316,4 +316,4 @@ button::after {
 }
 
 /* popBox自定义弹窗样式 */
-@import "components/popBox/popBox.wxss";
+/* @import "components/popBox/popBox.wxss"; */

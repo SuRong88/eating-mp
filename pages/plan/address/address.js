@@ -1,8 +1,9 @@
 //address.js
 //获取应用实例
 const app = getApp()
-import formcheck from '../../utils/formcheck.js'
-import util from '../../utils/util.js'
+import formcheck from '../../../utils/formcheck.js'
+import util from '../../../utils/util.js'
+import base from '../../../utils/base.js'
 var VM = {
     data: {
         // 地址
@@ -23,6 +24,7 @@ VM.submitHandle = function() {
 }
 VM.onLoad = function(query) {
     this.init()
+    base.onLoad(this)
 }
 
 VM.onReady = function() {

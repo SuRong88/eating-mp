@@ -1,7 +1,7 @@
 //获取应用实例
 const app = getApp()
-import formcheck from '../../utils/formcheck.js'
-import util from '../../utils/util.js'
+import formcheck from '../../../utils/formcheck.js'
+import util from '../../../utils/util.js'
 var VM = {
     data: {
       

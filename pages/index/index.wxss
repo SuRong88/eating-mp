@@ -97,6 +97,7 @@
 .mul-item {
     font-size: 28rpx;
     color: #666666;
+    height: 1em;
     margin-bottom: 40rpx;
 }
 
@@ -105,8 +106,10 @@
 }
 
 .item-label {
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    /* text-wrap: nowrap; */
     width: 120rpx;
+    /* width: 130rpx; */
     text-align: justify;
     position: relative;
 }
@@ -161,18 +164,18 @@
 .m-con {
     width: 580rpx;
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%,-50%);
     background-color: #fff;
     border-radius: 28rpx;
 }
 
 .m-icon-close {
+    height: 80rpx;
     width: 48rpx;
-    height: 48rpx;
     position: absolute;
-    top: -20rpx;
+    top: -80rpx;
     right: 10rpx;
 }
 

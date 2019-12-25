@@ -5,7 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10000;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +27,6 @@
     justify-content: center;
     overflow: hidden;
     position: relative;
-    /*width: 72%;*/
 }
 
 .pop_close {
@@ -40,20 +39,25 @@
 }
 
 .pop_tit {
+    box-sizing: border-box;
+    width: 100%;
     color: #000;
     font-size: 34rpx;
-    line-height: 44rpx;
     letter-spacing: 6rpx;
-    padding: 50rpx 40rpx 20rpx 40rpx;
+    padding: 130rpx 40rpx 40rpx 40rpx;
     text-align: center;
 }
 
 .pop_con {
+    height: 200rpx;
     box-sizing: border-box;
     max-height: 60vh;
     overflow-y: scroll;
-    padding: 36rpx 40rpx;
+    padding: 0rpx 40rpx 30rpx;
     width: 100%;
+    font-size: 30rpx;
+    color: #555555;
+    line-height: 48rpx;
 }
 
 .pop_con .tip {
@@ -66,7 +70,7 @@
 
 .pop_btnBox {
     align-items: center;
-    border-top: 2rpx solid #ddd;
+    border-top: 2rpx solid #E6E6E6;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -76,14 +80,13 @@
 .pop_btn {
     border-radius: 0 !important;
     box-sizing: border-box;
-    font-size: 32rpx;
+    font-size: 36rpx;
     height: 0;
     line-height: 0;
     flex: 1;
-    padding: 40rpx 0 !important;
+    padding: 50rpx 0 !important;
     position: relative;
     text-align: center;
-    /*width: 50%;*/
 }
 
 .pop_btn.cancel {
@@ -92,7 +95,7 @@
 }
 
 .pop_btn.cancel:before {
-    background-color: #E5E5E5;
+    background-color: #E6E6E6;
     content: '';
     margin: auto;
     position: absolute;
@@ -101,14 +104,14 @@
     bottom: 0;
     right: 0;
     width: 2rpx;
-    height: 64rpx;
+    height: 100rpx;
 }
 
 .pop_btn.submit {
     border: none;
-    color: #000;
+    color: #CAA846;
 }
 
 .pop_btn:active {
-    background-color: #D2D3D5;
+    /* background-color: #D2D3D5; */
 }
