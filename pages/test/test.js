@@ -1,26 +1,29 @@
-// pages/test/test.js
-const app = getApp()
-import formcheck from '../../utils/formcheck.js'
-import util from '../../utils/util.js'
-import base from '../../utils/base.js';
+const app = getApp();
+const formcheck = require('../../utils/formcheck.js');
+const util = require('../../utils/util.js');
+const base = require('../../utils/base.js');
+const Req = require('../../utils/request.js');
 var VM = {
     data: {
         headBarHeight: 0,
         padHeight: 0,
-        show:1
+        show: 1
     }
 }
 VM.init = function() {
     util.setHeader(this);
-    // console.log(page)
-    console.log(app)
-    // console.log(this);
-    // console.log(app.getSystemInfo())
+    Req.request('getSystemInfo',null, {
+        method: 'get'
+    }, (res) => {
+        console.log(res)
+    }, (err) => {
+        console.log(err);
+    })
 }
 
 VM.onLoad = function(query) {
-   this.init()
-   	base.onLoad(this);
+    this.init()
+    base.onLoad(this);
 }
 
 VM.onReady = function() {

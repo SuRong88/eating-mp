@@ -85,7 +85,7 @@ function setHeader(that) {
                 headBarHeight: res.statusBarHeight / (res.windowWidth / 750),
                 padHeight: res.statusBarHeight / (res.windowWidth / 750) + 88
             })
-            console.log(res.statusBarHeight / (res.windowWidth / 750))
+            // console.log(res.statusBarHeight / (res.windowWidth / 750))
         }
     })
 }
@@ -94,13 +94,13 @@ function dataset(e, key) {
     return e.currentTarget.dataset[key];
 }
 module.exports = {
-    formatTime: formatTime,
-    space: space,
-    Toast: Toast,
-    errorToast: errorToast,
-    successToast: successToast,
-    showLoading: showLoading,
-    showModal: showModal,
-    setHeader: setHeader,
-    dataset: dataset
+    formatTime,
+    space,
+    Toast,
+    errorToast,
+    successToast,
+    showLoading,
+    showModal,
+    setHeader,
+    dataset
 }

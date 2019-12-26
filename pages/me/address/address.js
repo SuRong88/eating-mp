@@ -1,7 +1,7 @@
-//获取应用实例
-const app = getApp()
-import formcheck from '../../../utils/formcheck.js'
-import util from '../../../utils/util.js'
+const app = getApp();
+const formcheck = require('../../../utils/formcheck.js');
+const util = require('../../../utils/util.js');
+const base = require('../../../utils/base.js');
 var VM = {
     data: {
       
