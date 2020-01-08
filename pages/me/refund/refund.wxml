@@ -38,9 +38,9 @@
             </button>
         </view>
     </view>
-    <v-popBox wx:if='{{show}}' bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
+    <mp-popBox wx:if='{{show}}' bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
         <view class="text-c">
             <text>{{showTexts[showIndex]}}</text>
         </view>
-    </v-popBox>
+    </mp-popBox>
 </view>

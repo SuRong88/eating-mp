@@ -110,4 +110,5 @@
             </view>
         </view>
     </view>
+    <mp-tabbar tabbarIndex="0"></mp-tabbar>
 </view>

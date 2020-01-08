@@ -1,6 +1,4 @@
 {
-    "usingComponents": {
-        "v-popBox": "/components/popBox/popBox"
-    },
+    "usingComponents": {},
     "navigationStyle": "custom"
 }

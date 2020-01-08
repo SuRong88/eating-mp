@@ -12,7 +12,7 @@ var VM = {
 }
 VM.init = function() {
     util.setHeader(this);
-    Req.request('getSystemInfo',null, {
+    Req.request('getSystemInfo', null, {
         method: 'get'
     }, (res) => {
         console.log(res)
@@ -20,16 +20,20 @@ VM.init = function() {
         console.log(err);
     })
 }
+VM.backHandle = function() {
+    console.log('自定义返回事件');
+    this.returnBack();
+}
 VM.confirmHandle = function() {
     console.log('确定');
     this.setData({
-        show:false
+        show: false
     })
 }
 VM.cancelHandle = function() {
     console.log('取消');
     this.setData({
-        show:false
+        show: false
     })
 }
 VM.onLoad = function(query) {
@@ -54,7 +58,7 @@ VM.onUnload = function() {
 }
 
 VM.onPullDownRefresh = function() {
-
+    wx.stopPullDownRefresh()
 }
 
 VM.onReachBottom = function() {

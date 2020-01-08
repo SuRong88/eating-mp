@@ -16,7 +16,9 @@
     z-index: 99;
     display: block;
 }
-
+.container{
+    padding-bottom: 100rpx;
+}
 .content {
     padding: 0 40rpx;
 }

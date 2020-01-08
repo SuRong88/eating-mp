@@ -1,7 +1,7 @@
 //通用返回
-function returnBack(e) {
+function returnBack(num=1) {
     wx.navigateBack({
-        delta: 1,
+        delta: num,
     });
 };
 //空函数
@@ -10,6 +10,7 @@ function noFunc(e) {
 };
 //公用跳转
 function jump(e) {
+    console.log(233);
     var url = getApp().dataset(e, 'url');
     var type = getApp().dataset(e, 'type');
     if (type == 'reLaunch') {

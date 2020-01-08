@@ -16,12 +16,12 @@ Component({
         // 弹窗确定事件
         confirmHandle: function() {
             this.triggerEvent('confirm');
-            console.log('确定')
+            console.log('组件内确定')
         },
         // 弹窗取消事件
         cancelHandle: function() {
             this.triggerEvent('cancel', 'data');
-            console.log('取消')
+            console.log('组件内取消')
         }
         // _onCollection: function() {
         //     let collected = this.properties.collected;

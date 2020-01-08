@@ -82,4 +82,5 @@
             </button>
         </view>
     </view>
+    <mp-tabbar tabbarIndex="2"></mp-tabbar>
 </view>

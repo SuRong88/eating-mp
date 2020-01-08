@@ -13,12 +13,18 @@
     </view>
     <view class="content">
         内容区
+        <button class="test-btn" bindtap="base_jump" data-url="/pages/headerTest/headerTest">
+            自定义头部页面
+        </button>
+        <navigator class="test-btn" open-type="exit" target="miniProgram">
+            退出小程序
+        </navigator>
     </view>
-
+    <mp-tabbar cln="'test'" tabbarIndex='3'></mp-tabbar>
     <!-- <web-view src="https://www.baidu.com/"></web-view> -->
-    <!-- <v-popBox show='{{show}}' bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
+    <!-- <mp-popBox wx:if="{{false}}" bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
         <view class="text-c">
             <text>确定要返回用户端吗？</text>
         </view>
-    </v-popBox> -->
+    </mp-popBox> -->
 </view>

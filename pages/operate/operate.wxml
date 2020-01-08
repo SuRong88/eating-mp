@@ -30,9 +30,9 @@
             <text class="back-txt" bindtap='backClient'>返回用户端</text>
         </view>
     </view>
-    <v-popBox wx:if='{{show}}' bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
+    <mp-popBox wx:if='{{show}}' bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
         <view class="text-c">
             <text>确定要返回用户端吗？</text>
         </view>
-    </v-popBox>
+    </mp-popBox>
 </view>

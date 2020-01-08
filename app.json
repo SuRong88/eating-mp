@@ -1,67 +1,48 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/introduce/introduce",
-    "pages/plan/index/index",
-    "pages/plan/setting/setting",
-    "pages/plan/edit/edit",
-    "pages/plan/address/address",
-    "pages/charge/charge",
-    "pages/complete/complete",
-    "pages/cancel/cancel",
-    "pages/order/order",
-    "pages/comment/comment",
-    "pages/me/index/index",
-    "pages/me/bill/bill",
-    "pages/me/address/address",
-    "pages/me/refund/refund",
-    "pages/me/balance/balance",
-    "pages/me/voucher/voucher",
-    "pages/toggle/toggle",
-    "pages/operate/operate",
-    "pages/packer/packer",
-    "pages/deliver/deliver",
-    "pages/test/test",
-    "pages/logs/logs"
-  ],
-  "tabBar": {
-    "color": "#7F8389",
-    "selectedColor": "#000",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "计划",
-        "iconPath": "./images/tab_icon01.png",
-        "selectedIconPath": "./images/tab_icon01_sel.png"
-      },
-      {
-        "pagePath": "pages/order/order",
-        "text": "订单",
-        "iconPath": "./images/tab_icon02.png",
-        "selectedIconPath": "./images/tab_icon02_sel.png"
-      },
-      {
-        "pagePath": "pages/me/index/index",
-        "text": "我的",
-        "iconPath": "./images/tab_icon03.png",
-        "selectedIconPath": "./images/tab_icon03_sel.png"
-      }
-    ]
-  },
-  "networkTimeout": {
-    "request": 10000,
-    "connectSocket": 10000,
-    "uploadFile": 10000,
-    "downloadFile": 10000
-  },
-  "window": {
-    "backgroundColor": "#fff",
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "按时吃饭",
-    "navigationBarTextStyle": "black"
-  },
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/index",
+        "pages/introduce/introduce",
+        "pages/plan/index/index",
+        "pages/plan/setting/setting",
+        "pages/plan/edit/edit",
+        "pages/plan/address/address",
+        "pages/charge/charge",
+        "pages/complete/complete",
+        "pages/cancel/cancel",
+        "pages/order/order",
+        "pages/comment/comment",
+        "pages/me/index/index",
+        "pages/me/bill/bill",
+        "pages/me/address/address",
+        "pages/me/refund/refund",
+        "pages/me/balance/balance",
+        "pages/me/voucher/voucher",
+        "pages/toggle/toggle",
+        "pages/operate/operate",
+        "pages/packer/packer",
+        "pages/deliver/deliver",
+        "pages/test/test",
+        "pages/headerTest/headerTest",
+        "pages/logs/logs"
+    ],
+    
+    "usingComponents": {
+        "mp-header": "/components/header/header",
+        "mp-tabbar": "/components/tabbar/tabbar",
+        "mp-popBox": "/components/popBox/popBox"
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "window": {
+        "backgroundColor": "#fff",
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "按时吃饭",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json"
 }
