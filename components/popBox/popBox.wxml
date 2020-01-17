@@ -3,14 +3,14 @@
     <form bindsubmit='confirmHandle' bindreset='cancelHandle'>
         <view class='pop'>
             <view class="pop_tit">
-                提示
+                {{title}}
             </view>
             <view class='pop_con'>
                 <slot></slot>
             </view>
             <view class='pop_btnBox'>
-                <button formType="reset" plain='true' class='pop_btn cancel'>取消</button>
-                <button formType="submit" plain='true' class='pop_btn submit'>确定</button>
+                <button wx:if='{{showCancel}}' formType="reset" plain='true' class='pop_btn cancel'>{{cancelText}}</button>
+                <button formType="submit" plain='true' class='pop_btn submit'>{{confirmText}}</button>
             </view>
         </view>
     </form>

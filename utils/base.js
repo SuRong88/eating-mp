@@ -1,23 +1,32 @@
-//通用返回
-function returnBack(num=1) {
+/* -------------通用返回-------------- */
+function returnBack(e, delta = 1) {
+    // 返回页数
+    var num = getApp().dataset(e, 'delta') * 1;
+    num && (delta = num);
     wx.navigateBack({
-        delta: num,
+        delta: delta
     });
+    console.log(delta);
 };
-//空函数
+
+/* -------------空函数-------------- */
 function noFunc(e) {
     return false
 };
-//公用跳转
+
+/* -------------公用跳转-------------- */
 function jump(e) {
-    console.log(233);
     var url = getApp().dataset(e, 'url');
     var type = getApp().dataset(e, 'type');
     if (type == 'reLaunch') {
         url && wx.reLaunch({
             url
         });
-    } else if (type == 'redirectTo') {
+    } else if (type == 'switchTab') {
+        url && wx.switchTab({
+            url
+        });
+    } else if (type == 'redirect') {
         url && wx.redirectTo({
             url
         });
@@ -28,7 +37,7 @@ function jump(e) {
     }
 }
 
-// 外联跳转(待测)
+/* -------------外联跳转(待测)-------------- */
 function webJump(e) {
     var url = getApp().dataset(e, 'url');
     if (/^http/.test(url)) {
@@ -37,19 +46,20 @@ function webJump(e) {
         });
     }
 };
-// 初始化base
+
+/* -------------初始化base-------------- */
 function onLoad(page) {
     page.noFunc = noFunc;
     page.returnBack = returnBack;
     page.base_jump = jump;
     page.base_webJump = webJump;
-    /* 判断当前是否iphoneX */
+    // 判断当前是否iphoneX 
     var sys = getApp().getSystemInfo(),
         model = sys.model.toLowerCase(),
         is_iphone = /iphone/.test(sys.model.toLowerCase()),
         is_iphonex = /iphone\D*x/.test(model),
         system;
-    /* 判断系统 */
+    // 判断系统
     system = is_iphone ? 'ios' : 'android';
     page.setData({
         is_iphonex,

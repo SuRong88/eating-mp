@@ -4,14 +4,14 @@
         <image id="headerBg" mode="widthFix" src="../../images/home_banner.jpg" class="header-bg"></image>
         <view class="header-content flex-1 flex flex-ver" style="height: {{padHeight-headBarHeight}}rpx;">
             <view class="header-title">
-                按时吃饭
+                正经一餐
             </view>
         </view>
     </view>
     <view class="content">
         <view class="tip-box">
             <view class="tip">推广用户享免费试吃，还有 3 餐</view>
-            <view class="tip-m flex flex-ver flex-align-center">
+            <view wx:if="{{!noPlan}}" class="tip-m flex flex-ver flex-align-center">
                 <span>下次送餐日期:</span>
                 <span class="date">
                     2019-11-19
@@ -24,7 +24,8 @@
             <view class="box01-tip">
                 请点击下方+号，开始制定您的送餐计划
             </view>
-            <image class="add-icon" mode="aspectFit" src="../../images/home_icon.jpg" alt="">
+            <image bindtap="base_jump" data-url="/pages/plan/setting/setting" class="add-icon" mode="aspectFit" src="../../images/home_icon.jpg"
+                alt="">
             </image>
         </view>
         <!-- 2已有计划-->
@@ -36,20 +37,8 @@
                 每周送餐日
             </view>
             <view class="day-box flex flex-jcsb">
-                <view class="day-item">
-                    周一
-                </view>
-                <view class="day-item">
-                    周二
-                </view>
-                <view class="day-item">
-                    周三
-                </view>
-                <view class="day-item">
-                    周四
-                </view>
-                <view class="day-item">
-                    周五
+                <view wx:for="{{dayArr}}" wx:key="{{index}}" class="day-item">
+                    {{item}}
                 </view>
             </view>
             <view class="mul-box">
@@ -57,21 +46,21 @@
                     <view class="item-label">送达时间</view>
                     <text>:</text>
                     <view class="item-txt">
-                        12:00 之前
+                        {{service_time}} 之前
                     </view>
                 </view>
                 <view class="mul-item flex">
                     <view class="item-label">分量</view>
                     <text>:</text>
                     <view class="item-txt">
-                        中份
+                        {{weight}}
                     </view>
                 </view>
                 <view class="mul-item flex">
                     <view class="item-label">口味</view>
                     <text>:</text>
                     <view class="item-txt">
-                        可以常吃辣
+                        {{spicyArr[is_spicy-1]}}
                     </view>
                 </view>
             </view>

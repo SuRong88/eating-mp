@@ -11,5 +11,14 @@
     <mp-header title="自定义头部标题" cln="'header-test'" isMe></mp-header>
     <view class="content">
         内容区
+        <!-- <button bindtap="returnBack" data-delta="1">
+            返回指定页数
+        </button>
+        <button bindtap="base_jump" data-type="redirect" data-url="/pages/index/index">
+            返回指定页数
+        </button>
+        <button bindtap="returnBack"  data-delta="1">
+            返回指定页数
+        </button> -->
     </view>
 </view>

@@ -1,7 +1,7 @@
 {
     "pages": [
-        "pages/index/index",
         "pages/introduce/introduce",
+        "pages/index/index",
         "pages/plan/index/index",
         "pages/plan/setting/setting",
         "pages/plan/edit/edit",
@@ -41,7 +41,7 @@
         "backgroundColor": "#fff",
         "backgroundTextStyle": "dark",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "按时吃饭",
+        "navigationBarTitleText": "正经一餐",
         "navigationBarTextStyle": "black"
     },
     "sitemapLocation": "sitemap.json"

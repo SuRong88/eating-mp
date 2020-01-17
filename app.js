@@ -1,45 +1,86 @@
-//app.js
+const Req = require('./utils/request.js');
 App({
     onLaunch: function() {
         // 展示本地存储能力
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
-
-        // 登录
+        // this.checkNetwork()
+    },
+    globalData: {
+        userInfo: null,
+        planInfo: null //定制计划用户选择信息 
+    },
+    // 用户授权登录
+    userLogin: function(cb_ok) {
         wx.login({
-            success: res => {
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            success: res1 => {
+                wx.getUserInfo({
+                    success: res2 => {
+                        let userInfo = res2.userInfo
+                        this.globalData.userInfo = userInfo
+                        Req.request('login', {
+                            code: res1.code,
+                            channel_id: '',
+                            spread: '',
+                            nickname: userInfo.nickName,
+                            headimgurl: userInfo.avatarUrl
+                        }, {
+                            method: 'post'
+                        }, (res) => {
+                            cb_ok && cb_ok()
+                            console.log(res)
+                            wx.setStorageSync('token', res.data.token)
+                        }, (err) => {
+                            console.log(err);
+                        })
+                    }
+                })
             }
         })
-        // 获取用户信息
+    },
+    // 判断有没有授权
+    checkAuthorize: function(cb_ok, cb_err) {
+        if (!wx.getStorageSync('token')) {
+            console.log('token缺失');
+            return cb_err()
+        }
         wx.getSetting({
             success: res => {
                 if (res.authSetting['scope.userInfo']) {
-                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                    wx.getUserInfo({
-                        success: res => {
-                            // 可以将 res 发送给后台解码出 unionId
-                            this.globalData.userInfo = res.userInfo
-                            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                            // 所以此处加入 callback 以防止这种情况
-                            if (this.userInfoReadyCallback) {
-                                this.userInfoReadyCallback(res)
-                            }
-                        }
+                    // 已授权
+                    console.log('已授权');
+                    cb_ok && cb_ok();
+                } else {
+                    // 未授权
+                    console.log('未授权');
+                    cb_err && cb_err();
+                }
+            },
+        })
+    },
+    // 检查网络状态(待测)
+    checkNetwork: function(cb_ok) {
+        wx.getNetworkType({
+            success(res) {
+                const networkType = res.networkType
+                console.log(networkType);
+                if (networkType == 'none') {
+                    wx.showModal({
+                        title: '提示',
+                        content: '请检查网络设置',
+                        showCancel: false,
+                        cancelColor: '#000000',
+                        confirmColor: '#CA9700',
                     })
+                } else {
+                    cb_ok && cb_ok()
                 }
             }
         })
     },
-    globalData: {
-        userInfo: null
-    },
     //获取系统信息
     getSystemInfo: function() {
-        // console.log(this.globalData.sys)
-        // console.log(wx.getSystemInfo());
-        // console.log(wx.getSystemInfoSync());
         if (!this.globalData.sys) {
             this.globalData.sys = wx.getSystemInfoSync();
         }
@@ -48,5 +89,30 @@ App({
     // 获取 e.currentTarget.dataset 某个key值
     dataset: function(e, key) {
         return e.currentTarget.dataset[key];
+    },
+    //小程序支付接口
+    wxpay: function(inf, success, fail) {
+        console.log('***支付数据***', inf);
+        wx.requestPayment({
+            'timeStamp': inf.timeStamp,
+            'nonceStr': inf.nonceStr,
+            'package': inf['package'],
+            'signType': 'MD5',
+            'paySign': inf.paySign,
+            success: function(res) {
+                console.log(res);
+                if (res.errMsg == "requestPayment:ok") {
+                    typeof success === 'function' && success(res);
+                }
+            },
+            fail: function(res) {
+                console.log(res);
+                var tips = res.err_desc || res.errMsg;
+                if (!/cancel/.test(res.errMsg)) {
+                    return (typeof fail === 'function' && fail(res));
+                }
+                typeof fail === 'function' && fail(res);
+            }
+        });
     }
 })

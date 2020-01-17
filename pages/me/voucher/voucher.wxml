@@ -1,4 +1,5 @@
 <!--pages/me/voucher.wxml-->
+<wxs src="../../../wxs/format.wxs" module="format"/>
 <view class="container" style="padding-top:{{padHeight}}rpx;">
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
@@ -21,26 +22,26 @@
             </view>
         </view>
         <view class="voucher-box">
-            <view wx:for="{{10}}" wx:for-item='item' class="voucher-item {{item%2==0?'is-used':''}}">
+            <view wx:for="{{list}}" wx:key='index' class="voucher-item {{used?'is-used':''}}">
                 <view class="item-t flex flex-jcsb flex-ver">
                     <view class="item-t-l">
                         <view class="voucher-desc {{used?'is-used':''}}">
-                            邀请好友
+                            {{item.voucher_name}}
                         </view>
                         <view class="voucher-name">
                             代金券
                         </view>
                     </view>
                     <view class="item-t-r {{used?'is-used':''}}">
-                        ￥<text class="price">5</text>
+                        ￥<text class="price">{{item.amount}}</text>
                     </view>
                 </view>
                 <view class="item-b flex flex-ver flex-jcsb">
                     <view class="date ">
-                        发放日期：2019-11-22
+                        发放日期：{{format.sliceDate(item.create_time)}}
                     </view>
                     <view wx:if="{{used}}" class="date">
-                        使用日期：2019-11-22
+                        使用日期：{{format.sliceDate(item.use_date)}}
                     </view>
                 </view>
                 <image wx:if="{{!used}}" mode="scaleToFill" src="../../../images/Coupon01.png" class="voucher-item-bg">
@@ -48,6 +49,12 @@
                 <image wx:else mode="scaleToFill" src="../../../images/Coupon02.png" class="voucher-item-bg">
                 </image>
             </view>
+        </view>
+        <view wx:if="{{isEmpty}}" class="no-result">
+            暂无内容
+        </view>
+        <view wx:if="{{current == total_page}}" class="last-page">
+           别拉了，到底啦~
         </view>
     </view>
 </view>

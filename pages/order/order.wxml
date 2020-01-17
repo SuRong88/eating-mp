@@ -54,6 +54,12 @@
                 </view>
             </view>
         </view>
+    <view wx:if="{{isEmpty}}" class="no-result">
+        暂无内容
+    </view>
+    <view wx:if="{{current == total_page}}" class="last-page">
+       别拉了，到底啦~
+    </view>
     </view>
     <mp-tabbar tabbarIndex="1"></mp-tabbar>
 </view>

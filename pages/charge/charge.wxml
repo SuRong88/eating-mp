@@ -2,7 +2,7 @@
 <view class="container" style="padding-top:{{padHeight}}rpx;">
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
-            <view class="header-back" wx:if = "{{!isHome}}" bindtap="returnBack">
+            <view class="header-back" wx:if="{{!isHome}}" bindtap="returnBack">
                 <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
                 </image>
             </view>
@@ -23,17 +23,17 @@
             </view>
             <view class="price-box clearfix">
                 <view wx:for="{{priceList}}" wx:key="index" wx:for-index="index" wx:for-item="item" class="price-item fl">
-                    <view data-index = "{{index}}" bindtap="checkedHandle" class="price {{checkedIndex==index?'is-checked':''}}">
-                        {{item.price}} 元
+                    <view data-index="{{index}}" bindtap="checkedHandle" class="price {{checkedIndex==index?'is-checked':''}}">
+                        {{item.amount}} 元
                     </view>
                     <view class="price-desc">
-                        {{item.desc}}
+                        {{item.prefer!=0?'享每餐优惠 '+item.prefer+' 元':''}}
                     </view>
                 </view>
             </view>
         </view>
-        <view class="pay-tip">
-            上次预充在 2019年3月3日，金额 200 元
+        <view class="pay-tip" wx:if="{{last_time}}">
+            上次预充在 {{last_time}}，金额 {{item.count}} 元
         </view>
         <view bindtap="payHandle" class="btn-pay">
             支付

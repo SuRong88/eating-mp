@@ -8,7 +8,8 @@ page{
 .header-content {
 }
 .container{
-    padding-bottom: 200rpx;
+    /* padding-bottom: 200rpx; */
+    padding-bottom: 80rpx;
 }
 .content {
     padding: 0 30rpx;

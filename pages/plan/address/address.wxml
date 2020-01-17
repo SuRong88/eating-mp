@@ -7,14 +7,14 @@
                 </image>
             </view>
             <view class="header-title">
-                定制计划-地址
+                {{headerTitle}}
             </view>
         </view>
     </view>
     <view class="content">
         <view class="input-item">
             <view class="item-txt">
-                每周固定在哪几天送餐？
+                选择送餐地点
             </view>
             <input value="{{value01}}" bindtap = "submitHandle" disabled placeholder-class="item-holder-class" placeholder="点击此处，去地图上点选" class="item-value" type="text" />
             <view class="tips">

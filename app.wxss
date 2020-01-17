@@ -320,6 +320,13 @@ button::after {
     position: relative;
     z-index: 999;
 }
-
+.no-result,
+.last-page{
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #030303;
+    padding-bottom: 20rpx;
+}
 /* popBox自定义弹窗样式 */
 /* @import "components/popBox/popBox.wxss"; */

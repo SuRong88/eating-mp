@@ -9,7 +9,9 @@
     z-index: 999;
 }
 
-.tabbar-item {}
+.tabbar-item {
+    height: 100%;
+}
 
 .tabbar-item-inner {
     text-align: center;

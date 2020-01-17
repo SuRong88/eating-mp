@@ -6,10 +6,11 @@
     /* padding-left: 0; */
 }
 .content{
-    padding: 0 40rpx;
+    padding: 0 40rpx 280rpx;
 }
 .btn-enter{
     width:100%;
+    width: 670rpx;
     line-height: 80rpx;
     text-align: center;
     font-size: 30rpx;
@@ -17,7 +18,10 @@
     background: #FFE102;
     border-radius: 40rpx;
     font-weight: 700;
-    margin: 100rpx 0;
+    position: fixed;
+    bottom: 100rpx;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .introduce-box{
     padding-top: 60rpx;

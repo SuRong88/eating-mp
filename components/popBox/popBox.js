@@ -2,9 +2,21 @@ Component({
 
     properties: {
         // 这里定义了show属性，属性值可以在组件使用时指定
-        show: {
+        showCancel: {
             type: Boolean,
             value: true
+        },
+        title: {
+            type: String,
+            value: '提示'
+        },
+        confirmText: {
+            type: String,
+            value: '确定'
+        },
+        cancelText: {
+            type: String,
+            value: '取消'
         }
     },
 

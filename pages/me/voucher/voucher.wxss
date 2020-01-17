@@ -10,7 +10,7 @@ page {
 .header-content {}
 
 .container {
-    padding-bottom: 100rpx;
+    padding-bottom: 0rpx;
 }
 
 .content {}

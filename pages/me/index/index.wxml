@@ -15,12 +15,13 @@
         <view class="banner">
             <image id="headerBg" mode="" src="../../../images/Me_bg.jpg" class="header-bg">
                 <view class="avatar-box">
-                    <image mode="" src="{{userInfo.avatarUrl}}" class="header-avatar">
+                    <image mode="" src="{{headimg}}" class="header-avatar">
                     </image>
-                    <image bindtap="base_jump" data-url="/pages/toggle/toggle" mode="" src="../../../images/Me_icon.png" class="header-toggle">
+                    <image bindtap="base_jump" data-url="/pages/toggle/toggle" mode="" src="../../../images/Me_icon.png"
+                        class="header-toggle">
                     </image>
                     <view class="header-name">
-                        {{userInfo.nickName}}
+                        {{nickname}}
                     </view>
                 </view>
 
@@ -30,7 +31,7 @@
             <view class="account flex">
                 <view bindtap="base_jump" data-url="/pages/charge/charge" class="account-item flex flex-center flex-1">
                     <view class="account-num">
-                        233
+                        {{amount}}
                         <text class="account-txt">元</text>
                     </view>
                     <view class="account-desc">
@@ -39,7 +40,7 @@
                 </view>
                 <view bindtap="base_jump" data-url="/pages/me/voucher/voucher" class="account-item flex flex-center flex-1">
                     <view class="account-num">
-                        5
+                        {{voucher_num}}
                     </view>
                     <view class="account-desc">
                         代金券
@@ -59,14 +60,14 @@
                 <image class="icon-arrow-right" mode="aspectFit" src="../../../images/Me_arrow.png">
                 </image>
             </view>
-            <view bindtap="base_jump" data-url="/pages/plan/address/address" class="list-item flex flex-ver">
+            <view bindtap="base_jump" data-url="/pages/plan/address/address?type=edit" class="list-item flex flex-ver">
                 <image class="list-icon" mode="aspectFit" src="../../../images/Me_icon02.png">
                 </image>
                 <text class="list-txt">送餐地址</text>
                 <image class="icon-arrow-right" mode="aspectFit" src="../../../images/Me_arrow.png">
                 </image>
             </view>
-            <view bindtap="base_jump" data-url="/pages/me/refund/refund" class="list-item flex flex-ver">
+            <view bindtap="base_jump" data-url="/pages/me/refund/refund?amount={{amount}}" class="list-item flex flex-ver">
                 <image class="list-icon" mode="aspectFit" src="../../../images/Me_icon03.png">
                 </image>
                 <text class="list-txt">余额退款</text>

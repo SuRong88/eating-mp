@@ -14,7 +14,7 @@
     <view class="content">
         <view class="banner flex flex-center">
             <view class="account">
-                <text class="num">235</text>
+                <text class="num">{{amount}}</text>
                 <text>元</text>
             </view>
             <view class="desc">
@@ -38,7 +38,7 @@
             </button>
         </view>
     </view>
-    <mp-popBox wx:if='{{show}}' bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
+    <mp-popBox confirmText="{{showIndex==2?'确定':'知道了'}}" showCancel="{{showIndex==2}}" wx:if='{{show}}' bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
         <view class="text-c">
             <text>{{showTexts[showIndex]}}</text>
         </view>

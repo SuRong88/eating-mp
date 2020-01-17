@@ -9,11 +9,20 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"coverView": true,
+		"autoAudits": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": false,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.4",
-	"appid": "wxe25cbea0d2a8b4a8",
+	"libVersion": "2.10.0",
+	"appid": "wx12f41eafe674703c",
 	"projectname": "eating",
 	"debugOptions": {
 		"hidedInDevtools": []

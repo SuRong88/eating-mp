@@ -1,4 +1,5 @@
 <!--pages/plan/setting.wxml-->
+<wxs src="../../../wxs/format.wxs" module="format"></wxs>
 <view class="container" style="padding-top:{{padHeight}}rpx;">
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
@@ -35,10 +36,11 @@
                     要求送达的时间
                 </view>
                 <view class="item-main item-main02 flex flex-jcsb flex-wrap">
-                    <view data-index='0' bindtap="settingHandle02" class="main02-item {{checkedIndex02==0?'is-checked':''}}">
-                        11:30 之前
+                    <view wx:for="{{timeArr}}" wx:key="{{index}}" data-index='{{index}}' bindtap="settingHandle02"
+                        class="main02-item {{checkedIndex02==index?'is-checked':''}}">
+                        {{timeArr[index]}} 之前
                     </view>
-                    <view data-index='1' bindtap="settingHandle02" class="main02-item {{checkedIndex02==1?'is-checked':''}}">
+                    <!-- <view data-index='1' bindtap="settingHandle02" class="main02-item {{checkedIndex02==1?'is-checked':''}}">
                         12:00 之前
                     </view>
                     <view data-index='2' bindtap="settingHandle02" class="main02-item {{checkedIndex02==2?'is-checked':''}}">
@@ -46,7 +48,7 @@
                     </view>
                     <view data-index='3' bindtap="settingHandle02" class="main02-item {{checkedIndex02==3?'is-checked':''}}">
                         13:00 之前
-                    </view>
+                    </view> -->
 
                 </view>
             </view>
@@ -55,30 +57,13 @@
                     每次饭菜的分量
                 </view>
                 <view class="item-main item-main03 flex flex-jcsb">
-                    <view data-index='0' bindtap="settingHandle03" class="main03-item {{checkedIndex03==0?'is-checked':''}}">
+                    <view wx:for="{{weightList}}" wx:key="{{index}}" data-index='{{index}}' bindtap="settingHandle03"
+                        class="main03-item {{checkedIndex03==index?'is-checked':''}}">
                         <view class="price-box">
-                            中份，<span class="price">12</span> 元/份
+                            {{item.name}}，<span class="price">{{item.price}}</span> 元/份
                         </view>
                         <view class="desc">
-                            <view>
-                                2荤1素配汤，分量适中
-                            </view>
-                            <view>
-                                适合通常男性
-                            </view>
-                        </view>
-                    </view>
-                    <view data-index='1' bindtap="settingHandle03" class="main03-item {{checkedIndex03==1?'is-checked':''}}">
-                        <view class="price-box">
-                            小份，<span class="price">10</span> 元/份
-                        </view>
-                        <view class="desc">
-                            <view>
-                                2荤1素配汤，分量较小
-                            </view>
-                            <view>
-                                适合通常女性
-                            </view>
+                            {{item.remark}}
                         </view>
                     </view>
 
@@ -104,13 +89,18 @@
                 <view class="item-title">
                     可联系到您的手机号码
                 </view>
-                <view class="item-main item-main05">
-                    <input class="phone" value="{{phone}}" placeholder="请输入联系手机号码" placeholder-class="input-placeholder"
-                        type="number" confirm-type="" />
-                </view>
-                <view class="tip">
-                    仅提供给送餐员，方便其在必要时与您联系。
-                </view>
+                <!--手机 1.未获取 -->
+                <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="main04-item" wx:if="{{phone==''}}">点此获取</button>
+                <!-- 2.已获取 -->
+                <block wx:else>
+                    <view class="item-main item-main05">
+                        <input class="phone" value="{{format.hidePhone(phone)}}" placeholder-class="input-placeholder"
+                            type="number" confirm-type="" />
+                    </view>
+                    <view class="tip">
+                        仅提供给送餐员，方便其在必要时与您联系。
+                    </view>
+                </block>
             </view>
         </view>
         <view bindtap="nextStep" class="btn-next">

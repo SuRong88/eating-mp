@@ -18,9 +18,9 @@ var VM = {
                 tipDesc: ''
             },
             {
-                pageTitle: '提现成功',
+                pageTitle: '提现中',
                 tipTitle: '提现成功',
-                tipDesc: '款项将退还到您微信钱包的零钱，申请后24小时内到账。'
+                tipDesc: '款项将退还到您微信钱包的零钱,退款审核中'
             }
         ]
     }

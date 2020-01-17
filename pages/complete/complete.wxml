@@ -12,9 +12,9 @@
         </view>
     </view>
     <view class="content text-c">
-        <image class="icon-complete" src="../../images/finish.png"></image>
+        <image class="icon-complete" src="../../images/{{currentIndex!=2?'finish':'wait'}}.png"></image>
         <view class="txt-box">
-            <view class="tip">
+            <view wx:if="{{currentIndex!=2}}" class="tip">
                 {{tipList[currentIndex].tipTitle}}
             </view>
             <view wx:if="{{tipList[currentIndex].tipDesc}}" class="tip-desc">
@@ -22,5 +22,6 @@
             </view>
         </view>
         <view class="btn btn-complete" bindtap="returnBack">完成</view>
+        <!-- <view class="btn btn-complete" bindtap="base_jump" data-url="/pages/me/index/index" data-type="redirect">完成</view> -->
     </view>
 </view>

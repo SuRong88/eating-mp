@@ -100,6 +100,7 @@ module.exports = {
     errorToast,
     successToast,
     showLoading,
+    hideLoading,
     showModal,
     setHeader,
     dataset

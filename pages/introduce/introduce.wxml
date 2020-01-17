@@ -3,11 +3,11 @@
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
             <view class="header-title">
-                按时吃饭
+                正经一餐
             </view>
         </view>
     </view>
-    <view class="content">
+    <view class="content" hidden="{{checkNow}}">
         <view class="introduce-box">
             <view class="introduce-item">
                 <view class="item-txt item-txt0">
@@ -67,8 +67,8 @@
                 </view>
             </view>
         </view>
-        <view class="btn-enter">
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btn-enter">
             进入小程序
-        </view>
+        </button>
     </view>
 </view>
