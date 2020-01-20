@@ -1,0 +1,27 @@
+<!--pages/complete/complete.wxml-->
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <!-- <view class="header-back" wx:if = "{{!isHome}}" bindtap="returnBack">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view> -->
+            <view class="header-title">
+                {{tipList[currentIndex].pageTitle}}
+            </view>
+        </view>
+    </view>
+    <view class="content text-c">
+        <image class="icon-complete" src="../../images/{{currentIndex!=2?'finish':'wait'}}.png"></image>
+        <view class="txt-box">
+            <view wx:if="{{currentIndex!=2}}" class="tip">
+                {{tipList[currentIndex].tipTitle}}
+            </view>
+            <view wx:if="{{tipList[currentIndex].tipDesc}}" class="tip-desc">
+                {{tipList[currentIndex].tipDesc}}
+            </view>
+        </view>
+        <view class="btn btn-complete" bindtap="returnBack">完成</view>
+        <!-- <view class="btn btn-complete" bindtap="base_jump" data-url="/pages/me/index/index" data-type="redirect">完成</view> -->
+    </view>
+</view>

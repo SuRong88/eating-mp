@@ -1,0 +1,89 @@
+/* pages/charge/charge.wxss */
+.header{
+    background: #FFE200;
+}
+.header-content{
+    /* padding-left: 0; */
+}
+.content{
+    padding: 0 40rpx;
+}
+.title-box{
+    padding: 60rpx 0 40rpx;
+}
+.charge-title{
+    font-weight: 700;
+    font-size: 32rpx;
+    color: #333333;
+    margin-right: 20rpx;
+}
+.price-item{
+    width: 210rpx;
+    margin-right: 20rpx;
+}
+.price-item:nth-child(3n){
+    margin-right: 0;
+}
+.price{
+    width: 100%;
+    line-height: 58rpx;
+    text-align: center;
+    border: 1rpx solid #CCCCCC;
+}
+.price.is-checked {
+    position: relative;
+    border: 1rpx solid #FF8800;
+}
+
+.price.is-checked:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -2rpx;
+    right: -2rpx;
+    width: 32rpx;
+    height: 32rpx;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAXVBMVEUAAAD/iQD/iQD/lwD/pAD/iQD/iQD/iQD/igD/jQD/kgD/iQD/iQD/iQD/iQD/iQD/iQD/iQD/jAD/iQD/iQD/iAD/iAD/iAD/iAD/iQD/igD/igD/iQD/lAD/iACuEN/QAAAAHnRSTlMA+oAJBNmoeUEhFfTozce3aSkc7+O7sKGQhFdMOBPgmOMNAAAAyElEQVRIx83QNxLDQAwEwT3RU977+/8zZapUE4lLZJwECToANM2aNLL5T8zyuJIQIYDwABEFCA+8qLYbgLyYb9UB5MVNqgFeXKQNN3ixKvVIgL9i1lbfudipP2TAX7HTc/XZaVUeeeuAqEsV65wb6ZoBQ2JdqDyfpHseBohlLxXq9g4gqu4tltkCxKLt6+wAggBOeIDwwAuAFwAvPEAYYATAC0BMALwAeBEECIAXgJAAeAGICYAXgIhICoqkoEgKiqSgiAI1mmQvDUdWEmkmSFYAAAAASUVORK5CYII=") no-repeat;
+    /* background-position: (-4rpx -4rpx); */
+    background-size: 100%;
+    
+}
+.price-desc{
+    height: 80rpx;
+    padding-top: 16rpx;
+    text-align: center;
+}
+.price-desc span{
+    padding: 0 6rpx;
+}
+.btn-pay{
+    width:100%;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333333;
+    background: #FFE102;
+    border-radius: 40rpx;
+    font-weight: 700;
+}
+.title-tip,
+.price-desc{
+    font-size: 24rpx;
+    color: #B48C5A;
+}
+.pay-tip,
+.charge-tip{
+    font-size: 26rpx;
+    color: #999999;
+}
+.pay-tip{
+    padding: 16rpx 0 32rpx;
+    text-align: center;
+}
+.charge-tip{
+    padding-top: 60rpx;
+    line-height: 1.5;
+}
+.charge-tip .tip-item{
+   margin-bottom: 50rpx; 
+}

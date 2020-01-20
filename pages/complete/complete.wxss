@@ -1,0 +1,39 @@
+/* pages/complete/complete.wxss */
+.header{
+    background: #FFE200;
+}
+.header-content{
+    /* padding-left: 0; */
+}
+.content{
+    /* padding: 0 40rpx; */
+    padding-top: 200rpx;
+}
+.icon-complete{
+    width: 140rpx;
+    height: 168rpx;
+}
+.txt-box{
+    padding:80rpx 0;
+}
+.tip{
+    font-weight: 700;
+    font-size: 36rpx;
+    color: #333333;
+}
+.tip-desc{
+    font-size: 26rpx;
+    color: #B48C5A;
+    padding: 24rpx 0 20rpx;
+}
+.btn-complete{
+    margin: 0 auto;
+    width:412rpx;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333333;
+    background: #FFE102;
+    border-radius: 40rpx;
+    font-weight: 700;
+}

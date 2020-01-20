@@ -1,0 +1,33 @@
+<!--pages/test/test.wxml-->
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back" wx:if="{{!isHome}}">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                测试页面
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        内容区
+        <button class="test-btn" bindtap="base_jump" data-url="/pages/headerTest/headerTest">
+            自定义头部页面
+        </button>
+        <navigator class="test-btn" open-type="exit" target="miniProgram">
+            退出小程序
+        </navigator>
+        <!-- <button class="test-btn" open-type="getUserInfo">用户授权</button> -->
+        
+        <button class="test-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>
+    </view>
+    <mp-tabbar cln="'test'" tabbarIndex='3'></mp-tabbar>
+    <!-- <web-view src="https://www.baidu.com/"></web-view> -->
+    <!-- <mp-popBox wx:if="{{false}}" bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
+        <view class="text-c">
+            <text>确定要返回用户端吗？</text>
+        </view>
+    </mp-popBox> -->
+</view>

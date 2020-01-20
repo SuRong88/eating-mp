@@ -1,0 +1,103 @@
+<!--pages/test/test.wxml-->
+<view class="container" style="padding-top:376rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <image id="headerBg" mode="widthFix" src="../../images/home_banner.jpg" class="header-bg"></image>
+        <view class="header-content flex-1 flex flex-ver" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-title">
+                正经一餐
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="tip-box">
+            <view class="tip">推广用户享免费试吃，还有 3 餐</view>
+            <view wx:if="{{!noPlan}}" class="tip-m flex flex-ver flex-align-center">
+                <span>下次送餐日期:</span>
+                <span class="date">
+                    2019-11-19
+                </span>
+                <span>周二</span>
+            </view>
+        </view>
+        <!-- 1还没有计划-->
+        <view wx:if="{{noPlan}}" class="plan-box01">
+            <view class="box01-tip">
+                请点击下方+号，开始制定您的送餐计划
+            </view>
+            <image bindtap="base_jump" data-url="/pages/plan/setting/setting" class="add-icon" mode="aspectFit" src="../../images/home_icon.jpg"
+                alt="">
+            </image>
+        </view>
+        <!-- 2已有计划-->
+        <view wx:else class="plan-box02">
+            <view class="box2-tit">
+                我的送餐计划
+            </view>
+            <view class="day-tit">
+                每周送餐日
+            </view>
+            <view class="day-box flex flex-jcsb">
+                <view wx:for="{{dayArr}}" wx:key="{{index}}" class="day-item">
+                    {{item}}
+                </view>
+            </view>
+            <view class="mul-box">
+                <view class="mul-item flex">
+                    <view class="item-label">送达时间</view>
+                    <text>:</text>
+                    <view class="item-txt">
+                        {{service_time}} 之前
+                    </view>
+                </view>
+                <view class="mul-item flex">
+                    <view class="item-label">分量</view>
+                    <text>:</text>
+                    <view class="item-txt">
+                        {{weight_show}}
+                    </view>
+                </view>
+                <view class="mul-item flex">
+                    <view class="item-label">口味</view>
+                    <text>:</text>
+                    <view class="item-txt">
+                        {{is_spicy_show}}
+                    </view>
+                </view>
+            </view>
+            <view class="link-menu flex flex-jcsb">
+                <view class="link-item" bindtap="base_jump" data-url="/pages/plan/edit/edit">
+                    调整送餐计划
+                </view>
+                <view class="link-item" bindtap="base_jump" data-url="/pages/cancel/cancel">
+                    临时取消送餐
+                </view>
+                <button class="link-item" open-type="share">
+                    推荐给同事
+                </button>
+            </view>
+            <view class="btn-charge" bindtap="base_jump" data-url="/pages/charge/charge">
+                预充饭卡
+            </view>
+        </view>
+    </view>
+    <view class="index-mask" wx:if="{{showWelcome}}">
+        <view class="m-con">
+            <image bindtap="closeWelcome" class="m-icon-close" src="../../images/icon-close.png" mode=""></image>
+            <image class="m-bg" src="../../images/home_banner.jpg" mode=""></image>
+            <view class="m-main">
+                <image class="m-icon" src="../../images/tip_icon01.png" mode=""></image>
+                <view class="m-title">
+                    亲爱的用户
+                </view>
+                <view class="m-txt">
+                    <text>感谢您的信任选择我们</text>
+                    <text>也为自己选择了一份健康、合口味的午餐</text>
+                </view>
+            </view>
+            <view class="m-bottom flex flex-center">
+                <image mode="widthFix" class="m-tip-img" src="../../images/tip_img2.png" mode=""></image>
+            </view>
+        </view>
+    </view>
+    <mp-tabbar tabbarIndex="0"></mp-tabbar>
+</view>

@@ -1,0 +1,33 @@
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back" wx:if = "{{!isHome}}" bindtap="returnBack">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                配送员
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="role-box">
+            <image mode="widthFix" class="role-img" src="../../images/deliver-bg.png"></image>
+            <view class="operate-box">
+                <view class="operate-item">
+                    <view class="number-box">
+                        <view class="number-item">
+                            MRXD00321
+                        </view>q
+                    </view>
+                    <view bindtap="" class="btn-scan">
+                        保温箱扫码
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="" class="btn-confirm">
+            确认送达
+        </view>
+    </view>
+</view>

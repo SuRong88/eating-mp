@@ -1,0 +1,38 @@
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back" wx:if = "{{!isHome}}" bindtap="returnBack">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                操作端
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="role-box">
+            <view class="role-item">
+                <image mode="widthFix" class="role-img" src="../../images/img01.png"></image>
+                <view bindtap="" class="role-btn">
+                    我是打包员
+                </view>
+            </view>
+            <view class="role-item">
+                <image mode="widthFix" class="role-img" src="../../images/img02.png"></image>
+                <view bindtap="" class="role-btn">
+                    我是配送员
+                </view>
+            </view>
+        </view>
+        <view class="btn-back flex flex-ver flex-align-center">
+            <image class="icon-back" src="../../images/Return_icon02.png"></image>
+            <text class="back-txt" bindtap='backClient'>返回用户端</text>
+        </view>
+    </view>
+    <mp-popBox wx:if='{{show}}' bind:confirm='confirmHandle' bind:cancel='cancelHandle'>
+        <view class="text-c">
+            <text>确定要返回用户端吗？</text>
+        </view>
+    </mp-popBox>
+</view>

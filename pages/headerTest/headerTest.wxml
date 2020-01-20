@@ -1,0 +1,24 @@
+<view class="container">
+    <!-- 普通 不带返回按钮 -->
+    <!-- <mp-header cln="'class-name'" title="自定义头部标题"></mp-header> -->
+    <!-- 普通 带返回按钮 -->
+    <!-- <mp-header cln="'class-name'" title="自定义头部标题" showBack isHome="{{isHome}}"></mp-header> -->
+    <!-- 自定义返回事件 -->
+    <!-- <mp-header cln="'class-name'" title="自定义头部标题" bind:back="backHandle" custom showBack isHome="{{isHome}}"></mp-header> -->
+    <!-- 显示“首页按钮” -->
+    <!-- <mp-header cln="'class-name'" title="自定义头部标题" showHome></mp-header> -->
+   <!-- 显示“个人中心”按钮 -->
+    <mp-header title="自定义头部标题" cln="'header-test'" isMe></mp-header>
+    <view class="content">
+        内容区
+        <!-- <button bindtap="returnBack" data-delta="1">
+            返回指定页数
+        </button>
+        <button bindtap="base_jump" data-type="redirect" data-url="/pages/index/index">
+            返回指定页数
+        </button>
+        <button bindtap="returnBack"  data-delta="1">
+            返回指定页数
+        </button> -->
+    </view>
+</view>

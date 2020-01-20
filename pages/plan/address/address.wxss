@@ -1,0 +1,54 @@
+/* pages/plan/address.wxss */
+.header {
+    background: #FFE200;
+}
+.content {
+    padding: 0 40rpx;
+}
+.btn-complete{
+    width: 100%;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333333;
+    background: #FFE102;
+    border-radius: 40rpx;
+    font-weight: 700;
+    margin: 100rpx 0;
+}
+.btn-complete.is-disabled{
+    background: #CACACA;
+}
+.input-item .item-value{
+    border-bottom: 1rpx solid #CCCCCC;
+}
+.input-item:last-child .item-value{
+    border: 0;
+}
+.item-txt{
+    font-weight: 700;
+    font-size: 32rpx;
+    color: #333333;
+    padding: 60rpx 0 22rpx;
+}
+.tips{
+    font-size: 13px;
+    color: #999999;
+}
+.tips .tip{
+    padding-top: 20rpx;
+}
+.link-txt{
+   color: #348DFF;
+    text-decoration: underline;
+    padding-right: 10rpx;
+}
+.item-value{
+    height: 76rpx;
+    font-size: 28rpx;
+    color: #333333;
+}
+.item-holder-class{
+    font-size: 28rpx;
+    color: #999999;
+}
