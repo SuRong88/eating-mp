@@ -16,8 +16,14 @@ function noFunc(e) {
 
 /* -------------公用跳转-------------- */
 function jump(e) {
+    var pages = getCurrentPages(); 
+    var currentPage = pages[pages.length - 1];
+    var oldUrl = currentPage.route; 
     var url = getApp().dataset(e, 'url');
     var type = getApp().dataset(e, 'type');
+    if (`/${oldUrl}` == url) {
+        return false
+    }
     if (type == 'reLaunch') {
         url && wx.reLaunch({
             url

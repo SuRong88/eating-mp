@@ -34,11 +34,14 @@
     color: #B48C5A;
     font-weight: 700;
 }
+.tip.mb{
+    margin-bottom: 22rpx;
+}
 
 .tip-m {
-    margin-top: 22rpx;
     font-size: 26rpx;
     color: #666666;
+    line-height: 1.4;
 }
 
 .date {
@@ -89,8 +92,11 @@
     color: #666666;
     text-align: center;
     border: 1rpx solid #666666;
+    margin-right: 20rpx;
 }
-
+.day-item:last-child {
+    margin-right: 0;
+}
 .mul-box {
     padding-bottom: 60rpx;
     border-bottom: 1rpx solid #EEEEEE;

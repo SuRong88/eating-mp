@@ -41,12 +41,12 @@ Component({
                 "iconPath": "/images/tab_icon03.png",
                 "selectedIconPath": "/images/tab_icon03_sel.png"
             },
-            {
-                "pagePath": "/pages/test/test",
-                "text": "测试页",
-                "iconPath": "/images/tab_icon01.png",
-                "selectedIconPath": "/images/tab_icon01_sel.png"
-            }
+            // {
+            //     "pagePath": "/pages/test/test",
+            //     "text": "测试页",
+            //     "iconPath": "/images/tab_icon01.png",
+            //     "selectedIconPath": "/images/tab_icon01_sel.png"
+            // }
         ]
     },
     // 生命周期函数，可以为函数，或一个在methods段中定义的方法名

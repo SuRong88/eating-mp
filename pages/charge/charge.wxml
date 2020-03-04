@@ -33,7 +33,7 @@
             </view>
         </view>
         <view class="pay-tip" wx:if="{{last_time}}">
-            上次预充在 {{last_time}}，金额 {{item.count}} 元
+            上次预充在 {{last_time}}，金额 {{count}} 元
         </view>
         <view bindtap="payHandle" class="btn-pay">
             支付

@@ -323,7 +323,8 @@ button::after {
 .no-result{
     line-height: 400rpx;
     text-align: center;
-    font-size: 24rpx;
+    /* font-size: 24rpx; */
+    font-size: 30rpx; 
     color: #030303;
     padding-bottom: 20rpx;
 }

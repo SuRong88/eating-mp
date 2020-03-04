@@ -5,11 +5,13 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 var VM = {
     data: {
+        // code
+        code:'',
         showTip: true,
         // 饭菜分量
         weightList: [],
         // test 
-        phone: '15015050789',
+        phone: '',
         // 每周几天送餐 arr
         dayArr: [{
                 name: "周一",
@@ -44,6 +46,13 @@ var VM = {
 VM.init = function() {
     // 设置自定义头部
     util.setHeader(this);
+    // 获取code
+    let that = this;
+    wx.login({
+        success: res => {
+            that.data.code = res.code
+        }
+    })
     // 获取饭菜分量list
     Req.request('getWeightList', null, {
         method: 'get'
@@ -107,7 +116,7 @@ VM.nextStep = function() {
             is_spicy: _data.checkedIndex04 + 1,
             phone: _data.phone
         }
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/plan/address/address'
         })
     } else {
@@ -121,8 +130,10 @@ VM.getPhoneNumber = function(e) {
     // 取消授权
     if (e.detail.errMsg == "getPhoneNumber:fail user deny") {
         util.showModal('提示', '手机授权失败，请重新授权', false, '', '确定')
-    } else {
+    } else { //确认授权
+        let that = this
         Req.request('getPhoneNum', {
+            code: that.data.code,
             iv: e.detail.iv,
             encryptedData: e.detail.encryptedData
         }, {
@@ -135,6 +146,32 @@ VM.getPhoneNumber = function(e) {
         }, (err) => {
             util.showModal('提示', '获取手机失败，请重试', false, '', '确定')
         })
+        // wx.login({
+        //     success: res => {
+        //         Req.request('getPhoneNum', {
+        //             code: res.code,
+        //             iv: e.detail.iv,
+        //             encryptedData: e.detail.encryptedData
+        //         }, {
+        //             method: 'get'
+        //         }, (res) => {
+        //             console.log(res);
+        //             this.setData({
+        //                 phone: res.data
+        //             })
+        //         }, (err) => {
+        //             util.showModal('提示', '获取手机失败，请重试', false, '', '确定')
+        //         })
+        //     },
+        //     fail: err => {
+        //         wx.showModal({
+        //             title: '提示',
+        //             content: '登录失败,请重试',
+        //             showCancel: false,
+        //             confirmColor: '#CA9700',
+        //         })
+        //     }
+        // })
     }
 }
 
@@ -143,30 +180,4 @@ VM.onLoad = function(query) {
     base.onLoad(this)
 }
 
-VM.onReady = function() {
-
-}
-
-VM.onShow = function() {
-
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
-}
-
-VM.onPullDownRefresh = function() {
-
-}
-
-VM.onReachBottom = function() {
-
-}
-VM.onShareAppMessage = function() {
-
-}
 Page(VM)

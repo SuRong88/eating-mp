@@ -13,12 +13,13 @@ var VM = {
             "提现金额超过可取最大金额，请\n与客服联系。",
             "确定要提现全部金额吗？"
         ],
+        // 余额
         amount: 0
     }
 }
 VM.init = function(query) {
     this.setData({
-        amount: query.amount || 10
+        amount: query.amount || 0
     })
     // 设置自定义头部
     util.setHeader(this);
@@ -48,18 +49,27 @@ VM.confirmHandle = function() {
                 method: 'post'
             }, (res) => {
                 // 判断提现金额是否超过后台设置最大金额
-                if (!true) {
-                    wx.navigateTo({
-                        url: '/pages/complete/complete?type=withdraw'
-                    })
-                } else {
-                    this.setData({
-                        show: true,
-                        showIndex: 1
-                    })
+                wx.navigateTo({
+                    url: '/pages/complete/complete?type=withdraw'
+                })
+            }, (err) => {
+                // 0-金额为0 1-超过限制 2-操作失败
+                switch (err.status * 1) {
+                    case 0:
+                        this.setData({
+                            show: true,
+                            showIndex: 0
+                        });
+                        break;
+                    case 1:
+                        this.setData({
+                            show: true,
+                            showIndex: 2
+                        });
+                        break;
+                    default:
+                        util.showModal('提示', '系统出错', false, '', '确定')
                 }
-            }, () => {
-                wx.showModal('提示', '系统出错', false, '', '知道了')
             })
     }
 }
@@ -83,30 +93,8 @@ VM.refundHandle = function() {
         })
     }
 }
-VM.onReady = function() {
-
-}
-
-VM.onShow = function() {
-
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
-}
-
 VM.onPullDownRefresh = function() {
     wx.stopPullDownRefresh()
 }
 
-VM.onReachBottom = function() {
-
-}
-VM.onShareAppMessage = function() {
-
-}
 Page(VM)

@@ -7,7 +7,7 @@ var VM = {
     data: {
         // pagination
         current: 0,
-        rownum: 10,
+        rownum: 12,
         total: 0,
         total_page: 1,
         list: [],
@@ -41,30 +41,15 @@ VM.getList = function(e) {
         let list = this.data.list
         this.setData({
             list: list.concat(data.list),
-            current: pagination.current,
-            rownum: pagination.rownum,
-            total: pagination.total,
-            total_page: pagination.total_page,
-            isEmpty: pagination.total <= 0 ? true : false
+            current: pagination.current * 1,
+            rownum: pagination.rownum * 1,
+            total: pagination.total * 1,
+            total_page: pagination.total_page * 1,
+            isEmpty: pagination.total * 1 <= 0 ? true : false
         })
     }, () => {
         wx.showModal('提示', '系统出错', false, '', '知道了')
     })
-}
-VM.onReady = function() {
-
-}
-
-VM.onShow = function() {
-
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
 }
 
 VM.onPullDownRefresh = function() {
@@ -74,7 +59,5 @@ VM.onPullDownRefresh = function() {
 VM.onReachBottom = function() {
     this.getList()
 }
-VM.onShareAppMessage = function() {
 
-}
 Page(VM)

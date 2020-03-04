@@ -47,6 +47,10 @@ const OPTIONS = {
     getPhoneNum: {
         url: `${HOST}/user/phone`
     },
+    //获取申请状态
+    getApplyState: {
+        url: `${HOST}//workRegist`
+    },
     /*
      **2.支付模块
      */
@@ -83,6 +87,32 @@ const OPTIONS = {
     // get获取取消送餐的日期 post提交取消送餐的日期
     cancelDelivery: {
         url: `${HOST}/plan/cancel`
+    },
+    /*
+     **5.打包员模块
+     */
+    // 注册打包员
+    applyPacker: {
+        url: `${HOST}/packer/apply`
+    },
+    // 餐盒扫码
+    scanPacker: {
+        url: `${HOST}/packer/order`
+    },
+    // 提交打包
+    submitPacker: {
+        url: `${HOST}/packer/box`
+    },
+    /*
+     **6.配送员模块
+     */
+    // 注册配送员
+    applyDeliver: {
+        url: `${HOST}/runner/apply`
+    },
+    // 提交配送
+    submitDeliver: {
+        url: `${HOST}/runner/box`
     }
 }
 // 状态码处理
@@ -96,28 +126,32 @@ function codeCheck(data, success, fail) {
             util.showModal('提示', '参数缺失', false, '', '确定')
             break;
         case 10301: //其他错误
+            fail && fail(data)
+            break;
         case 10329: //送餐地址超出范围
             fail && fail(code)
             break;
+        // case 10330: //预充余额不足
+        //     fail && fail(code)
+        //     break;
         case 50003: //token过期
-            // util.errorToast('登录信息已过期,请重新登录');
-            util.showModal('提示', '登录信息已过期,请重新登录', false, '', '确定')
-            app.checkAuthorize(() => {
-                app.userLogin((res) => {
-                    // res.request_url???
-                    wx.reLaunch({
-                        url: '/pages/index/index'
+            util.showModal('提示', '登录信息已过期,请重新登录', false, '', '确定', () => {
+                getApp().checkAuthorize(() => {
+                    getApp().userLogin((res) => {
+                        wx.reLaunch({
+                            url: '/pages/index/index'
+                        })
                     })
-                })
-            }, () => {
-                wx.reLaunch({
-                    url: '/pages/introduce/introduce'
+                }, () => {
+                    wx.reLaunch({
+                        url: '/pages/introduce/introduce'
+                    })
                 })
             })
             break;
         default:
             if (fail) {
-                fail()
+                fail(code)
             } else {
                 // util.Toast(data.msg);
                 util.showModal('提示', data.msg, false, '', '确定')

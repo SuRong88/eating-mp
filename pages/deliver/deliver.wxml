@@ -17,16 +17,16 @@
                 <view class="operate-item">
                     <view class="number-box">
                         <view class="number-item">
-                            MRXD00321
-                        </view>q
+                            {{boxNumber}}
+                        </view>
                     </view>
-                    <view bindtap="" class="btn-scan">
+                    <view bindtap="scanHandle" class="btn-scan">
                         保温箱扫码
                     </view>
                 </view>
             </view>
         </view>
-        <view bindtap="" class="btn-confirm">
+        <view bindtap="submitHandle" class="btn-confirm">
             确认送达
         </view>
     </view>

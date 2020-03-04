@@ -1,0 +1,71 @@
+/* pages/operate/operate.wxss */
+.header{
+    background: #FFE200;
+}
+.header-content{
+    /* padding-left: 0; */
+}
+.content{
+    padding: 0 60rpx;
+}
+.enter-box{
+    padding:120rpx 0 80rpx;
+}
+.enter-item{
+    height: 120rpx;
+    border-bottom: 1rpx solid #EFEFEF;
+}
+.label{
+    width: 110rpx;
+    font-size: 28rpx;
+    color: #787878;
+    flex-shrink: 0;
+    font-weight: 700;
+    text-align: justify;
+}
+.label:after{
+    content: '';
+    display: inline-block;
+    width: 0;
+}
+.enter-input{
+    font-weight: 700;
+    flex: 1;
+    font-size: 28rpx;
+    color: #787878;
+}
+.holder-class{
+    font-size: 28rpx;
+    color: #C7C7CC;
+}
+.btn-submit{
+    width: 510rpx;
+    margin: 0 auto;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 40rpx;
+    font-size: 32rpx;
+    background: #FFE200;
+    color: #333333;
+}
+.btn-submit.is-disabled{
+    background: #999999;
+    color: #FFFFFF;
+}
+.waiting-box{
+    text-align: center;
+}
+.waiting-title{
+    font-weight: 700;
+    line-height: 200rpx;
+    font-size: 34rpx;
+    color: #333333;
+}
+.waiting-icon{
+    width: 140rpx;height: 168rpx;
+    margin-bottom: 48rpx;
+}
+.waiting-tip{
+    font-size: 28rpx;
+    color: #666666;
+}

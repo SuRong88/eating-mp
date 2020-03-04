@@ -14,7 +14,10 @@ var VM = {
         weight: '',
         weight_show: '',
         is_spicy: 1, // 1-从不吃辣 2-偶尔吃辣 3-可常吃辣
-        is_spicy_show: ''
+        is_spicy_show: '',
+        word:'',//顶部黄色字体
+        next_day:'',//下次送餐字
+        welcome_text:''//欢迎提示语
     }
 }
 VM.init = function() {
@@ -27,11 +30,10 @@ VM.init = function() {
     Req.request('indexPlanning', null, {
         method: 'get'
     }, (res) => {
-        console.log(res);
         // 已有计划
-        if (res.data) {
-            let data = res.data
-            let dayArr = []
+        let data = res.data
+        let dayArr = []
+        if (res.data.date) {
             data.date.forEach((item) => {
                 dayArr.push("周" + "一二三四五".charAt(item - 1))
             })
@@ -39,9 +41,16 @@ VM.init = function() {
                 noPlan: false,
                 dayArr: dayArr,
                 service_time: data.service_time,
-                weight: data.weight,
+                weight: data.weight, 
                 weight_show: data.weight_show,
-                is_spicy_show: data.is_spicy_show
+                is_spicy_show: data.is_spicy_show,
+                word:data.word,
+                next_day:data.next_day,
+                welcome_text:data.welcome_text || ''
+            })
+        } else { //没有计划
+            this.setData({
+                welcome_text:data.welcome_text || ''
             })
         }
     }, (err) => {
@@ -75,42 +84,13 @@ VM.getWeekDay = function(val) {
     }
     return val = "周" + "日一二三四五六".charAt(date.getDay());
 }
-VM.onReady = function() {
-
-}
-
 VM.onShow = function() {
-    // test
-    // console.log(this.getWeekDay('2020-01-17'));
-    // let data = {
-    //     date:[1,3,5]
-    // }
-    // let dayArr = []
-    // data.date.forEach((item) => {
-    //     dayArr.push("周" + "一二三四五".charAt(item - 1))
-    // })
-    // console.log(dayArr);
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
-}
-
-VM.onPullDownRefresh = function() {
-
-}
-
-VM.onReachBottom = function() {
-
+    this.init()
 }
 VM.onShareAppMessage = function() {
     return {
         title: "正经一餐",
-        path: '/pages/index/index',
+        path: '/pages/index/index?shareId='+app.globalData.userInfo.id,
         imageUrl: '', //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
     };
 }

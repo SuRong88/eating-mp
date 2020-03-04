@@ -174,30 +174,4 @@ VM.onLoad = function(query) {
     base.onLoad(this)
 }
 
-VM.onReady = function() {
-
-}
-
-VM.onShow = function() {
-
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
-}
-
-VM.onPullDownRefresh = function() {
-
-}
-
-VM.onReachBottom = function() {
-
-}
-VM.onShareAppMessage = function() {
-
-}
 Page(VM)

@@ -14,19 +14,18 @@
         <view class="role-box">
             <view class="role-item">
                 <image mode="widthFix" class="role-img" src="../../images/img01.png"></image>
-                <view bindtap="roleHandle01" class="role-btn">
+                <view bindtap="" class="role-btn">
                     我是打包员
                 </view>
             </view>
             <view class="role-item">
                 <image mode="widthFix" class="role-img" src="../../images/img02.png"></image>
-                <view bindtap="roleHandle02" class="role-btn">
+                <view bindtap="" class="role-btn">
                     我是配送员
                 </view>
             </view>
         </view>
-         <!-- type 1.申请终端角色 2.进入终端 -->
-        <view wx:if="{{type!=1}}" class="btn-back flex flex-ver flex-align-center">
+        <view class="btn-back flex flex-ver flex-align-center">
             <image class="icon-back" src="../../images/Return_icon02.png"></image>
             <text class="back-txt" bindtap='backClient'>返回用户端</text>
         </view>

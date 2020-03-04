@@ -1,8 +1,9 @@
 <!--pages/cancel/cancel.wxml-->
+<wxs src="../../wxs/format.wxs" module='format'></wxs>
 <view class="container" style="padding-top:{{padHeight}}rpx;">
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
-            <view class="header-back" wx:if = "{{!isHome}}" bindtap="returnBack">
+            <view class="header-back" wx:if="{{!isHome}}" bindtap="returnBack">
                 <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
                 </image>
             </view>
@@ -18,27 +19,12 @@
                 临时取消哪一天的送餐？
             </view>
             <view class="date-box">
-                <view class="day-item">
-                    2月4日
-                    <span>
-                        （周二）
-                    </span>
-                </view>
-                <view class="day-item is-disabled">
-                    2月5日
-                    <span>
-                        （周二）
-                    </span>
-                </view>
-                <view class="day-item is-checked">
-                    2月6日
-                    <span>
-                        （周二）
-                    </span>
+                <view data-index="{{index}}" bindtap="cancelHandle" wx:for="{{list}}" wx:key="index" class="day-item {{item.is_cancel?'is-checked':''}} {{!item.is_choosed?'is-disabled':''}}">
+                    {{item.show_str}}
                 </view>
             </view>
             <view class="cancel-tip">
-                有限次数取消当日送餐的权利已使用 1 次，本月还剩 1 次。
+                有限次数取消当日送餐的权利已使用 {{2-cancel}} 次，本月还剩 {{cancel}} 次。
             </view>
             <view class="btn-cancel" bindtap="confirmCancel">确定取消订餐</view>
             <view class="cancel-desc-box">
@@ -62,7 +48,7 @@
                     当前没有可以取消的送餐
                 </view>
             </view>
-            <view class="btn-charge" bindtap="chargeCard">预充饭卡</view>
+            <view class="btn-charge" bindtap="base_jump" data-url="/pages/charge/charge?type=index">预充饭卡</view>
         </view>
     </view>
 </view>

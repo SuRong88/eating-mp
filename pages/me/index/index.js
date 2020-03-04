@@ -11,7 +11,9 @@ var VM = {
         amount:0,
         // 代金券
         voucher_num:0,
-        nickname:''
+        nickname:'',
+        // 用户类型 1-用户 2-配送员 3-打包员 4-全部
+        role:1
     }
 }
 
@@ -27,7 +29,8 @@ VM.init = function(type) {
             headimg:data.headimg,
             amount:data.amount,
             voucher_num:data.voucher_num,
-            nickname:data.nickname||''
+            nickname:data.nickname||'',
+            role:data.role
         })
     }, () => {
         wx.showModal('提示', '系统出错', false, '', '知道了')
@@ -66,7 +69,7 @@ VM.onReachBottom = function() {
 VM.onShareAppMessage = function() {
     return {
         title: "正经一餐",
-        path: '/pages/index/index',
+        path: '/pages/index/index?shareId='+app.globalData.userInfo.id,
         imageUrl: ''
     }
 }

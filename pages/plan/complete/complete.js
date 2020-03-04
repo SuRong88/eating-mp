@@ -1,9 +1,8 @@
 //complete.js
-//获取应用实例
 const app = getApp()
-const formcheck = require('../../utils/formcheck.js');
-const util = require('../../utils/util.js');
-const base = require('../../utils/base.js');
+const formcheck = require('../../../utils/formcheck.js');
+const util = require('../../../utils/util.js');
+const base = require('../../../utils/base.js');
 var VM = {
     data: {
         currentIndex: 0,
@@ -40,7 +39,6 @@ VM.init = function(type) {
                 currentIndex: 1
             })
             break;
-           
         case 'withdraw':
             this.setData({
                 currentIndex: 2
@@ -52,25 +50,17 @@ VM.init = function(type) {
 }
 // 点击完成
 VM.completeHandle = function() {
-    // 0定制成功 1申请打包配送成功 2提现成功
-    let currentIndex = this.data.currentIndex
-    switch(currentIndex){
-        case 0:
-        console.log('定制成功');
+    //用户类型 1-新加入的推广用户 2-新加入的推荐用户 3-其他用户
+    let userType = app.globalData.userType
+    // 推广用户直接回到首页
+    if (userType == 1) {
         wx.reLaunch({
-            url: '/pages/index/index'
+            url: '/pages/index/index',
         })
-        break;
-        case 1://待处理
-        // wx.reLaunch({
-        //     url: '/pages/me/address/address'
-        // })
-        break;
-        case 2:
-        wx.reLaunch({
-            url: '/pages/me/index/index'
+    } else {
+        wx.redirectTo({
+            url: '/pages/charge/charge',
         })
-        break;
     }
 }
 VM.onLoad = function(query) {

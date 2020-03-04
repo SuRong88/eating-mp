@@ -13,7 +13,7 @@
     </view>
     <view class="content">
         <view class="order-box">
-            <view wx:for='{{list}}' wx:for-item='item' wx:key='{{item.id}}' class="order-item">
+            <view wx:for='{{list}}' wx:for-item='item' wx:key='index' class="order-item">
                 <view class="item-date flex flex-jcsb flex-ver">
                     <view class="date">
                         <!-- 2月7日，周五 -->
@@ -43,8 +43,10 @@
                     </view>
                 </view>
                 <view class="item-desc">
-                    <text wx:if="{{item.recharge}}">已 -{{item.recharge}} 元预充优惠，</text>
-                    <text wx:if="{{item.voucher_amount}}">-{{item.voucher_amount}} 元代金券，</text>
+                    <text wx:if="{{item.recharge}}">已 -{{item.recharge}} 元预充优惠</text>
+                    <text wx:if="{{item.recharge&&(item.voucher_amount||item.discount)}}">，</text>
+                    <text wx:if="{{item.voucher_amount}}">-{{item.voucher_amount}} 元代金券</text>
+                    <text wx:if="{{item.voucher_amount && item.discount}}">，</text>
                     <text wx:if="{{item.discount}}">新用户打 {{item.discount}} 折</text>
                 </view>
             </view>

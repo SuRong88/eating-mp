@@ -120,7 +120,7 @@ VM.submitInvition = function() {
     let that = this
     Req.request('submitInvition', {
         location: `${that.data.address01Lat},${that.data.address01Lng}`,
-        address: that.data.address02
+        address: `${that.data.address01}|${that.data.address02}`
     }, {
         method: 'post'
     }, (res) => {
@@ -182,30 +182,4 @@ VM.onLoad = function(query) {
     base.onLoad(this)
 }
 
-VM.onReady = function() {
-
-}
-
-VM.onShow = function() {
-
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
-}
-
-VM.onPullDownRefresh = function() {
-
-}
-
-VM.onReachBottom = function() {
-
-}
-VM.onShareAppMessage = function() {
-
-}
 Page(VM)

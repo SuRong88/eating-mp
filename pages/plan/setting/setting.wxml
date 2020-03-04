@@ -25,7 +25,7 @@
                 </view>
                 <view class="item-main item-main01 flex flex-jcsb">
                     <view bindtap='settingHandle01' class="main01-item {{item.checked? 'is-checked':''}}" data-index="{{index}}"
-                        wx:for="{{dayArr}}" wx:for-item="item" wx:key="{{index}}">{{item.name}}</view>
+                        wx:for="{{dayArr}}" wx:for-item="item" wx:key="index">{{item.name}}</view>
                 </view>
                 <view class="tip">
                     不空出1天去吃吃其他美食？
@@ -36,7 +36,7 @@
                     要求送达的时间
                 </view>
                 <view class="item-main item-main02 flex flex-jcsb flex-wrap">
-                    <view wx:for="{{timeArr}}" wx:key="{{index}}" data-index='{{index}}' bindtap="settingHandle02"
+                    <view wx:for="{{timeArr}}" wx:key="index" data-index='{{index}}' bindtap="settingHandle02"
                         class="main02-item {{checkedIndex02==index?'is-checked':''}}">
                         {{timeArr[index]}} 之前
                     </view>
@@ -57,7 +57,7 @@
                     每次饭菜的分量
                 </view>
                 <view class="item-main item-main03 flex flex-jcsb">
-                    <view wx:for="{{weightList}}" wx:key="{{index}}" data-index='{{index}}' bindtap="settingHandle03"
+                    <view wx:for="{{weightList}}" wx:key="index" data-index='{{index}}' bindtap="settingHandle03"
                         class="main03-item {{checkedIndex03==index?'is-checked':''}}">
                         <view class="price-box">
                             {{item.name}}，<span class="price">{{item.price}}</span> 元/份

@@ -16,7 +16,6 @@ var VM = {
     }
 }
 VM.init = function() {
-    console.log(this.data);
     this.getList();
 }
 // 下一页评论成功之后更新本页面数据
@@ -47,20 +46,19 @@ VM.getList = function(e) {
     }, {
         method: 'get'
     }, (res) => {
-        console.log(res);
         let data = res.data
         let pagination = res.data.pagination
         let list = this.data.list
         this.setData({
             list: list.concat(data.list),
-            current: pagination.current,
-            rownum: pagination.rownum,
-            total: pagination.total,
-            total_page: pagination.total_page,
-            isEmpty: pagination.total <= 0 ? true : false
+            current: pagination.current * 1,
+            rownum: pagination.rownum * 1,
+            total: pagination.total * 1,
+            total_page: pagination.total_page * 1,
+            isEmpty: pagination.total * 1 <= 0 ? true : false
         })
     }, (err) => {
-        wx.showModal('提示', '系统出错', false, '', '知道了')
+        util.showModal('提示', '系统出错', false, '', '知道了')
     })
 }
 
@@ -68,27 +66,14 @@ VM.getList = function(e) {
 VM.jumpComment = function(e) {
     let index = util.dataset(e, 'index')
     let orderInfo = this.data.list[index]
+    let status = orderInfo.status
+    if (status != 3) {
+        return util.showModal('提示', '亲，订单还没完成呢', false, '', '知道了')
+    }
     app.globalData.orderInfo = orderInfo
     wx.navigateTo({
         url: `/pages/comment/comment`
     })
-    // console.log(app.globalData);
-}
-
-VM.onReady = function() {
-
-}
-
-VM.onShow = function() {
-    console.log(getCurrentPages().length);
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
 }
 
 VM.onPullDownRefresh = function() {
@@ -97,8 +82,5 @@ VM.onPullDownRefresh = function() {
 
 VM.onReachBottom = function() {
     this.getList()
-}
-VM.onShareAppMessage = function() {
-
 }
 Page(VM)

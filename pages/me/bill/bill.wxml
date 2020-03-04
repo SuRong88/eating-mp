@@ -14,7 +14,7 @@
     </view>
     <view class="content">
         <view class="bill-box">
-            <view wx:for="{{list}}" wx:key="{{item.id}}" class="bill-item flex flex-ver flex-jcsb">
+            <view wx:for="{{list}}" wx:key="index" class="bill-item flex flex-ver flex-jcsb">
                 <view class="item-l ">
                     <view class="item-txt">
                         <!-- 1-消费 2-充值 3-退款 -->

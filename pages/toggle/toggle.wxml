@@ -2,39 +2,30 @@
 <view class="container" style="padding-top:{{padHeight}}rpx;">
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
-            <view class="header-back" wx:if = "{{!isHome}}" bindtap="returnBack">
+            <view class="header-back" wx:if="{{!isHome}}" bindtap="returnBack">
                 <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
                 </image>
             </view>
             <view class="header-title">
-                {{waiting?'操作中':'商户终端权限申请'}}
+                商户终端权限申请
             </view>
         </view>
     </view>
     <view class="content">
-        <block wx:if="{{!waiting}}">
-            <view class="enter-box">
-                <view class="enter-item flex flex-ver">
-                    <text class="label">姓名</text>
-                    <input bindinput="nameCheck" placeholder="请输入真实姓名" placeholder-class="holder-class" class="enter-input" type="text" />
-                </view>
-                <view class="enter-item flex flex-ver">
-                    <text class="label">手机号</text>
-                    <input maxlength="11" bindinput="phoneCheck" placeholder="请输入手机号码" placeholder-class="holder-class" class="enter-input" type="number" confirm-type="done" />
-                </view>
+        <view class="enter-box">
+            <view class="enter-item flex flex-ver">
+                <text class="label">姓名</text>
+                <input bindinput="nameCheck" placeholder="请输入真实姓名" placeholder-class="holder-class" class="enter-input"
+                    type="text" />
             </view>
-            <view bindtap="submitHandle" class="btn-submit {{isDisabled?'is-disabled':''}}">
-                提交
+            <view class="enter-item flex flex-ver">
+                <text class="label">手机号</text>
+                <input maxlength="11" bindinput="phoneCheck" placeholder="请输入手机号码" placeholder-class="holder-class"
+                    class="enter-input" type="number" confirm-type="done" />
             </view>
-        </block>
-        <view wx:else class="waiting-box">
-            <view class="waiting-title">
-                XXXX商家配送操作终端
-            </view>
-            <image src="../../images/wait.png" class="waiting-icon"></image>
-            <view class="waiting-tip">
-                授权申请处理中，请耐心等待…
-            </view>
+        </view>
+        <view bindtap="submitHandle" class="btn-submit {{isDisabled?'is-disabled':''}}">
+            提交
         </view>
     </view>
 </view>

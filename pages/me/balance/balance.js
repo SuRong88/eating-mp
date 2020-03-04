@@ -12,38 +12,8 @@ VM.init = function(type) {
     util.setHeader(this);
 }
 
-
-
-
-
 VM.onLoad = function(query) {
     this.init(query)
 }
 
-VM.onReady = function() {
-
-}
-
-VM.onShow = function() {
-
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
-}
-
-VM.onPullDownRefresh = function() {
-    wx.stopPullDownRefresh()
-}
-
-VM.onReachBottom = function() {
-
-}
-VM.onShareAppMessage = function() {
-
-}
 Page(VM)

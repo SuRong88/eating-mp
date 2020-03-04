@@ -1,4 +1,3 @@
-<!--pages/test/test.wxml-->
 <view class="container" style="padding-top:376rpx;">
     <view class="header" style="padding-top:{{headBarHeight}}rpx;">
         <image id="headerBg" mode="widthFix" src="../../images/home_banner.jpg" class="header-bg"></image>
@@ -9,14 +8,12 @@
         </view>
     </view>
     <view class="content">
-        <view class="tip-box">
-            <view class="tip">推广用户享免费试吃，还有 3 餐</view>
-            <view wx:if="{{!noPlan}}" class="tip-m flex flex-ver flex-align-center">
-                <span>下次送餐日期:</span>
-                <span class="date">
-                    2019-11-19
-                </span>
-                <span>周二</span>
+        <view wx:if="{{word||next_day}}" class="tip-box">
+            <view class="tip {{next_day?'mb':''}}" wx:if="{{word}}">
+                {{word}}
+            </view>
+            <view wx:if="{{next_day}}" class="tip-m flex flex-ver flex-align-center">
+                {{next_day}}
             </view>
         </view>
         <!-- 1还没有计划-->
@@ -36,8 +33,8 @@
             <view class="day-tit">
                 每周送餐日
             </view>
-            <view class="day-box flex flex-jcsb">
-                <view wx:for="{{dayArr}}" wx:key="{{index}}" class="day-item">
+            <view class="day-box flex">
+                <view wx:for="{{dayArr}}" wx:key="index" class="day-item">
                     {{item}}
                 </view>
             </view>
@@ -75,7 +72,7 @@
                     推荐给同事
                 </button>
             </view>
-            <view class="btn-charge" bindtap="base_jump" data-url="/pages/charge/charge">
+            <view class="btn-charge" bindtap="base_jump" data-url="/pages/charge/charge?type=index">
                 预充饭卡
             </view>
         </view>
@@ -90,8 +87,7 @@
                     亲爱的用户
                 </view>
                 <view class="m-txt">
-                    <text>感谢您的信任选择我们</text>
-                    <text>也为自己选择了一份健康、合口味的午餐</text>
+                    <text>{{welcome_text}}</text>
                 </view>
             </view>
             <view class="m-bottom flex flex-center">

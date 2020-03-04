@@ -1,0 +1,26 @@
+<!--pages/operate/operate.wxml-->
+<view class="container" style="padding-top:{{padHeight}}rpx;">
+    <view class="header" style="padding-top:{{headBarHeight}}rpx;">
+        <view class="header-content flex flex-1 flex-ver flex-align-center" style="height: {{padHeight-headBarHeight}}rpx;">
+            <view class="header-back" wx:if = "{{!isHome}}" bindtap="returnBack">
+                <image class="header-icon-back" mode="aspectFit" src="../../images/icon-back.png">
+                </image>
+            </view>
+            <view class="header-title">
+                操作中
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="waiting-box">
+            <view class="waiting-title">
+                XXXX商家配送操作终端
+            </view>
+            <image src="../../images/wait.png" class="waiting-icon"></image>
+            <view class="waiting-tip">
+                <!-- 授权申请处理中，请耐心等待… -->
+                {{stateInfo[type-1]}}
+            </view>
+        </view>
+    </view>
+</view>

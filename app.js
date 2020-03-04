@@ -1,15 +1,69 @@
 const Req = require('./utils/request.js');
+const util = require('./utils/util.js');
 App({
-    onLaunch: function() {
+    onLaunch: function(options) {
         // 展示本地存储能力
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
+
+        // 强制更新
+        const updateManager = wx.getUpdateManager();
+        updateManager.onCheckForUpdate(function(res) {
+            // 请求完新版本信息的回调
+            if (res.hasUpdate) {
+                wx.showLoading({
+                    title: '更新中，请稍等',
+                    mask: true
+                })
+                updateManager.onUpdateReady(function() {
+                    wx.hideLoading();
+                    util.showModal('更新提示', '新版本已下载，点击确定重启应用', false, '', '确定', function() {
+                        updateManager.applyUpdate()
+                    })
+                });
+                updateManager.onUpdateFailed(function() {
+                    wx.hideLoading();
+                    util.showModal('提示', '新版本下载失败，请检查网络重启应用', false, '', '确定')
+                });
+            }
+        })
+
+        let scene = options.scene
+        let query = options.query
+        if ([1007, 1008].includes(scene)) {
+            this.globalData.enterType = 1
+            this.globalData.shareId = query.shareId || ''
+            console.log('分享进入');
+        } else if ([1011, 1012, 1013].includes(scene)) {
+            this.globalData.enterType = 2
+            // 1.申请打包\配送扫码
+            if (query.apply) {
+                return this.globalData.apply = true
+            }
+            // 2.使用打包/配送终端
+            if (query.role) {
+                return this.globalData.role = true
+            }
+            // 3.用户扫码
+            this.globalData.spread = query.spread || ''
+            console.log('扫码进入');
+        } else {
+            this.globalData.enterType = 3
+            console.log('普通进入');
+        }
+        console.log('场景值' + options.scene);
         // this.checkNetwork()
     },
     globalData: {
         userInfo: null,
-        planInfo: null //定制计划用户选择信息 
+        planInfo: null, //定制计划用户选择信息
+        enterType: 3, //1分享进入 2扫码进入 3普通进入
+        shareId: '', //推荐人userid
+        spread: '', //推广码
+        userType: 3, //用户类型 1-新加入的推广用户 2-新加入的推荐用户 3-其他用户
+        apply: false, //商家终端角色申请 
+        role: false //商家终端角色
     },
     // 用户授权登录
     userLogin: function(cb_ok) {
@@ -21,8 +75,8 @@ App({
                         this.globalData.userInfo = userInfo
                         Req.request('login', {
                             code: res1.code,
-                            channel_id: '',
-                            spread: '',
+                            channel_id: this.globalData.shareId,
+                            spread: this.globalData.spread,
                             nickname: userInfo.nickName,
                             headimgurl: userInfo.avatarUrl
                         }, {
@@ -30,6 +84,7 @@ App({
                         }, (res) => {
                             cb_ok && cb_ok(res)
                             console.log(res)
+                            this.globalData.userType = res.data.action
                             wx.setStorageSync('token', res.data.token)
                         }, (err) => {
                             console.log(err);

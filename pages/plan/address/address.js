@@ -52,12 +52,12 @@ VM.submitHandle = function() {
     }, {
         method: 'post'
     }, (res) => {
-        util.successToast('提交成功')
-        // setTimeout(()=>{
-        wx.navigateTo({
-            url: '/pages/charge/charge'
-        })
-        // },2000)
+        util.successToast('提交成功',1500)
+        setTimeout(()=>{
+            wx.redirectTo({
+                url: '/pages/plan/complete/complete?type=custom',
+            })    
+        },1500)
     }, (code) => { //特殊参数
         console.log(code);
         if (code == 10329) {
@@ -78,7 +78,7 @@ VM.submitInvition = function() {
     let that = this
     Req.request('submitInvition', {
         location: `${that.data.address01Lat},${that.data.address01Lng}`,
-        address: that.data.address02
+        address: `${that.data.address01}|${that.data.address02}`
     }, {
         method: 'post'
     }, (res) => {
@@ -123,9 +123,6 @@ VM.showMap = function() {
     })
 
 }
-// VM.checkValidate = function() {
-
-// }
 // 地图选址
 VM.addressHandle01 = function() {
     console.log(1);
@@ -148,30 +145,4 @@ VM.onLoad = function(query) {
     base.onLoad(this)
 }
 
-VM.onReady = function() {
-
-}
-
-VM.onShow = function() {
-
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
-}
-
-VM.onPullDownRefresh = function() {
-
-}
-
-VM.onReachBottom = function() {
-
-}
-VM.onShareAppMessage = function() {
-
-}
 Page(VM)

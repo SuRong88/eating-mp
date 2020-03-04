@@ -60,7 +60,7 @@ VM.getList = function(e) {
     Req.request('getVoucherList', {
         page: this.data.current + 1,
         rownum: this.data.rownum,
-        type: this.data.used ? 2 : 1//1未使用 2已使用
+        type: this.data.used ? 2 : 1 //1未使用 2已使用
     }, {
         method: 'get'
     }, (res) => {
@@ -69,32 +69,15 @@ VM.getList = function(e) {
         let list = this.data.list
         this.setData({
             list: list.concat(data.list),
-            current: pagination.current,
-            rownum: pagination.rownum,
-            total: pagination.total,
-            total_page: pagination.total_page,
-            isEmpty: pagination.total <= 0 ? true : false
+            current: pagination.current * 1,
+            rownum: pagination.rownum * 1,
+            total: pagination.total * 1,
+            total_page: pagination.total_page * 1,
+            isEmpty: pagination.total * 1 <= 0 ? true : false
         })
     }, () => {
         wx.showModal('提示', '系统出错', false, '', '知道了')
     })
-}
-
-
-VM.onReady = function() {
-
-}
-
-VM.onShow = function() {
-
-}
-
-VM.onHide = function() {
-
-}
-
-VM.onUnload = function() {
-
 }
 
 VM.onPullDownRefresh = function() {

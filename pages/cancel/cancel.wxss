@@ -35,7 +35,7 @@
 
 .day-item.is-disabled {
     color: #aaa;
-    /* border-color: #999; */
+    border-color: #ddd;
 }
 
 .day-item.is-checked {
