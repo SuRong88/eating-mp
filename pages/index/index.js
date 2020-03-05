@@ -11,7 +11,7 @@ var VM = {
         // inf
         dayArr: [],
         service_time: [],
-        weight: '',
+        // weight: '',
         weight_show: '',
         is_spicy: 1, // 1-从不吃辣 2-偶尔吃辣 3-可常吃辣
         is_spicy_show: '',
@@ -41,7 +41,7 @@ VM.init = function() {
                 noPlan: false,
                 dayArr: dayArr,
                 service_time: data.service_time,
-                weight: data.weight, 
+                // weight: data.weight, 
                 weight_show: data.weight_show,
                 is_spicy_show: data.is_spicy_show,
                 word:data.word,

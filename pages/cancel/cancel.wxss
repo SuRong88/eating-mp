@@ -34,10 +34,13 @@
 }
 
 .day-item.is-disabled {
-    color: #aaa;
-    border-color: #ddd;
+    color: #aaa!important;
+    border-color: #ddd!important;
+    border-style: solid!important;
 }
-
+.day-item.is-disabled::after {
+    display: none!important;
+}
 .day-item.is-checked {
     position: relative;
     border-color: #666;

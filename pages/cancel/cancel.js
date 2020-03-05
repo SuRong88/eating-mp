@@ -60,19 +60,37 @@ VM.cancelHandle = function(e) {
         if (this.data.cancel == 0) {
             return util.showModal('提示', '本月取消次数已用完', false, '', '确定')
         }
+        if (selectedDay.is_choosed == 0 && selectedDay.is_cancel == 1) {
+            return util.showModal('提示', '今天已取消，无法恢复', false, '', '确定')
+        }
         if (selectedDay.is_choosed == 0) {
             return util.showModal('提示', '今天已无法取消送餐', false, '', '确定')
         }
         let time = new Date().getHours()
-        if (time >= 11) {
+        if (time >= 18) {
             this.setData({
                 ['list[' + index + '].is_choosed']: 0
             })
             return util.showModal('提示', '已超过取消时间', false, '', '确定')
         }
+        // 1-v
+        // let cancel = selectedDay.is_cancel == 0 ? 1 : 0;
+        // this.setData({
+        //     ['list[' + index + '].is_cancel']: cancel,
+        // })
+        // 2-v今天可取消 取消时提示“不可恢复”
         let cancel = selectedDay.is_cancel == 0 ? 1 : 0;
-        this.setData({
-            ['list[' + index + '].is_cancel']: cancel,
+        // 原本“已选中 取消”
+        if(selectedDay.is_cancel){
+           return this.setData({
+               ['list[' + index + '].is_cancel']: cancel,
+           }) 
+        }
+        // 原本“未选中 取消”
+        util.showModal('提示', '临时取消不可恢复', false, '', '知道了', () => {
+            this.setData({
+                ['list[' + index + '].is_cancel']: cancel,
+            })
         })
     } else { // 2.非今天
         let cancel = selectedDay.is_cancel == 0 ? 1 : 0;
@@ -96,7 +114,7 @@ VM.confirmCancel = function() {
             break;
         }
     }
-    if(!isChanged){
+    if (!isChanged) {
         return false;
         // return util.showModal('提示', '没变化', false, '', '确定')
     }
@@ -104,14 +122,26 @@ VM.confirmCancel = function() {
         let item1 = list[i]
         let item2 = list2[i]
         item1.is_cancel != item2.is_cancel && cancelDays.push(item1.date_str)
-        if (item1.is_today == 1 && item1.is_choosed == 1) {
+        if (item1.is_today == 1 && item1.is_choosed == 1 && item1.is_cancel == item2.is_cancel) {
             let time = new Date().getHours()
-            if (time >= 10) {
+            if (time >= 18) {
                 this.setData({
                     ['list[' + i + '].is_choosed']: 0
                 })
                 return util.showModal('提示', '今天已超过取消时间', false, '', '确定')
             }
+            // // “今天”没有变
+            // if (item1.is_cancel == item2.is_cancel) {
+            //     // break
+            // } else { // 点了取消 校验时间
+            //     let time = new Date().getHours()
+            //     if (time >= 18) {
+            //         this.setData({
+            //             ['list[' + i + '].is_choosed']: 0
+            //         })
+            //         return util.showModal('提示', '今天已超过取消时间', false, '', '确定')
+            //     }
+            // }
         }
     }
     console.log(cancelDays);
