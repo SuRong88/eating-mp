@@ -1,10 +1,29 @@
 <!--使用tabbar的页面,wxss设置.container的padding-bottom -->
 <view class="tabbar flex flex-ver {{cln}}">
-    <view wx:for="{{tabbarList}}" wx:key="index" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}"
-        bindtap="base_jump" data-url="{{item.pagePath}}" data-type="redirect">
-        <view class="tabbar-item-inner">
-            <image class="tabbar-item-icon" mode="aspectFit" src="{{tabbarIndex==index?item.selectedIconPath:item.iconPath}}"></image>
-            <view class="tabbar-item-txt">{{item.text}}</view>
+    <block wx:for="{{tabbarList}}" wx:key="index">
+        <view wx:if="{{index<tabbarList.length-1}}" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}"
+            bindtap="base_jump" data-url="{{item.pagePath}}" data-type="redirect">
+            <view class="tabbar-item-inner">
+                <image class="tabbar-item-icon" mode="aspectFit" src="{{tabbarIndex==index?item.selectedIconPath:item.iconPath}}"></image>
+                <view class="tabbar-item-txt">{{item.text}}</view>
+            </view>
         </view>
-    </view>
+        
+        <block wx:else>
+            <!-- 已授权 -->
+            <view wx:if="{{isAbled}}" bindtap="base_jump" data-url="{{item.pagePath}}" data-type="redirect" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}">
+                <view class="tabbar-item-inner">
+                    <image class="tabbar-item-icon" mode="aspectFit" src="{{tabbarIndex==index?item.selectedIconPath:item.iconPath}}"></image>
+                    <view class="tabbar-item-txt">{{item.text}}</view>
+                </view>
+            </view> 
+            <!-- 未授权 -->
+           <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="tabbar-item flex flex-center flex-1 {{tabbarIndex == index?'active':''}}">
+               <view class="tabbar-item-inner">
+                   <image class="tabbar-item-icon" mode="aspectFit" src="{{tabbarIndex==index?item.selectedIconPath:item.iconPath}}"></image>
+                   <view class="tabbar-item-txt">{{item.text}}</view>
+               </view>
+           </button> 
+        </block>
+    </block>
 </view>

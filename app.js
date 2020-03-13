@@ -31,31 +31,81 @@ App({
 
         let scene = options.scene
         let query = options.query
+        
+        console.log(query);
         if ([1007, 1008].includes(scene)) {
+            console.log('分享进入');
             this.globalData.enterType = 1
             this.globalData.shareId = query.shareId || ''
-            console.log('分享进入');
-        } else if ([1011, 1012, 1013].includes(scene)) {
+        } else if ([1047, 1048, 1049].includes(scene)) {
+            console.log('扫码进入');
+            let  params = decodeURIComponent(query.scene)
+            let array = params.split('=')
+            console.log(params,array);
             this.globalData.enterType = 2
-            // 1.申请打包\配送扫码
-            if (query.apply) {
+            // 1.申请打包\配送终端
+            if (array[0]=='apply') {
+                console.log('申请终端');
                 return this.globalData.apply = true
             }
-            // 2.使用打包/配送终端
-            if (query.role) {
+            // 2.进入打包/配送终端
+            if (array[0]=='role') {
+                console.log('进入终端');
                 return this.globalData.role = true
             }
-            // 3.用户扫码
-            this.globalData.spread = query.spread || ''
-            console.log('扫码进入');
+            // 3.用户扫码(推广码)
+            console.log('推广二维码');
+            this.globalData.spread = array[1] || ''
         } else {
-            this.globalData.enterType = 3
             console.log('普通进入');
+            this.globalData.enterType = 3
         }
         console.log('场景值' + options.scene);
         // this.checkNetwork()
+
+        this.checkAuthorize(() => {
+            this.globalData.isAbled = true
+            wx.getUserInfo({
+                success: res => {
+                    let userInfo = res.userInfo
+                    this.globalData.userInfo = userInfo
+                }
+            })
+        }, () => {
+            wx.login({
+                success: res1 => {
+                    Req.request('login', {
+                        code: res1.code,
+                        channel_id: this.globalData.shareId,
+                        spread: this.globalData.spread,
+                    }, {
+                        method: 'post'
+                    }, (res) => {
+                        this.globalData.userType = res.data.action
+                        wx.setStorageSync('token', res.data.token)
+                    }, (err) => {
+                        console.log(err);
+                        wx.showModal({
+                            title: '提示',
+                            content: '系统出错,请重试',
+                            showCancel: false,
+                            confirmColor: '#CA9700',
+                        })
+                    })
+                },
+                fail: err => {
+                    wx.showModal({
+                        title: '提示',
+                        content: '登录失败,请重试',
+                        showCancel: false,
+                        confirmColor: '#CA9700',
+                    })
+                }
+            })
+        })
     },
     globalData: {
+        isAbled: false, //是否已授权
         userInfo: null,
         planInfo: null, //定制计划用户选择信息
         enterType: 3, //1分享进入 2扫码进入 3普通进入

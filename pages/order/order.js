@@ -58,7 +58,14 @@ VM.getList = function(e) {
             isEmpty: pagination.total * 1 <= 0 ? true : false
         })
     }, (err) => {
-        util.showModal('提示', '系统出错', false, '', '知道了')
+        console.log(err);
+        if (err == 50001) {
+            this.setData({
+                isEmpty: true
+            })
+        } else {
+            util.showModal('提示', '系统出错', false, '', '知道了')
+        }
     })
 }
 

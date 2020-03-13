@@ -75,7 +75,7 @@ VM.submitHandle = function() {
                 }, 1500)
             })
             break;
-        case 'deliver':
+        case 'runner':
             Req.request('applyDeliver', {
                 phone:phone,
                 realname:name

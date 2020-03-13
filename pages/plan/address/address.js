@@ -140,6 +140,7 @@ VM.addressHandle02 = function(e) {
         address02: e.detail.value
     })
 }
+
 VM.onLoad = function(query) {
     this.init(query)
     base.onLoad(this)

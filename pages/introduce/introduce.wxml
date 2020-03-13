@@ -67,8 +67,11 @@
                 </view>
             </view>
         </view>
-        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btn-enter">
+        <button bindtap="base_jump" data-url="/pages/index/index" class="btn-enter">
             进入小程序
         </button>
+       <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btn-enter">
+            进入小程序
+        </button> -->
     </view>
 </view>

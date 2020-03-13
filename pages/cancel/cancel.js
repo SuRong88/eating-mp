@@ -67,7 +67,7 @@ VM.cancelHandle = function(e) {
             return util.showModal('提示', '今天已无法取消送餐', false, '', '确定')
         }
         let time = new Date().getHours()
-        if (time >= 18) {
+        if (time >= 11) {
             this.setData({
                 ['list[' + index + '].is_choosed']: 0
             })
@@ -124,7 +124,7 @@ VM.confirmCancel = function() {
         item1.is_cancel != item2.is_cancel && cancelDays.push(item1.date_str)
         if (item1.is_today == 1 && item1.is_choosed == 1 && item1.is_cancel == item2.is_cancel) {
             let time = new Date().getHours()
-            if (time >= 18) {
+            if (time >= 11) {
                 this.setData({
                     ['list[' + i + '].is_choosed']: 0
                 })
@@ -135,7 +135,7 @@ VM.confirmCancel = function() {
             //     // break
             // } else { // 点了取消 校验时间
             //     let time = new Date().getHours()
-            //     if (time >= 18) {
+            //     if (time >= 11) {
             //         this.setData({
             //             ['list[' + i + '].is_choosed']: 0
             //         })

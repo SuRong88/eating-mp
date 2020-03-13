@@ -21,9 +21,15 @@
             <view class="box01-tip">
                 请点击下方+号，开始制定您的送餐计划
             </view>
-            <image bindtap="base_jump" data-url="/pages/plan/setting/setting" class="add-icon" mode="aspectFit" src="../../images/home_icon.jpg"
-                alt="">
-            </image>
+            <button wx:if="{{!isAbled}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="add-btn">
+                <image class="add-icon" mode="aspectFit" src="../../images/home_icon.jpg" alt="">
+                </image>
+            </button>
+            <view wx:else class="add-btn">
+                <image bindtap="base_jump" data-url="/pages/plan/setting/setting" class="add-icon" mode="aspectFit"
+                    src="../../images/home_icon.jpg" alt="">
+                </image>
+            </view>
         </view>
         <!-- 2已有计划-->
         <view wx:else class="plan-box02">

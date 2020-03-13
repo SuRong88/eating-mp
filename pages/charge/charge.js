@@ -95,7 +95,10 @@ VM.payHandle = function() {
         }, () => {
             util.Toast('支付失败')
         });
-    }, () => {
+    }, (err) => {
+        if (err.code) {
+            return util.showModal('提示', err.msg, false, '', '知道了')
+        }
         util.showModal('提示', '获取支付信息失败,请重试', false, '', '知道了')
     })
 

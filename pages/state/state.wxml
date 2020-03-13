@@ -14,7 +14,7 @@
     <view class="content">
         <view class="waiting-box">
             <view class="waiting-title">
-                XXXX商家配送操作终端
+                正经一餐商家配送操作终端
             </view>
             <image src="../../images/wait.png" class="waiting-icon"></image>
             <view class="waiting-tip">

@@ -84,7 +84,7 @@ VM.scanHandle01 = function() {
                 fail: (err) => {
                     console.log(err);
                     wx.hideLoading();
-                    util.errorToast('二维码错误');
+                    return util.showModal('提示', '二维码错误', false, '', '确定')
                 }
             })
         },
@@ -93,7 +93,7 @@ VM.scanHandle01 = function() {
             if (err.errMsg == "scanCode:fail cancel") {
                 return false;
             }
-            util.errorToast('系统出错,请重试');
+            return util.showModal('提示', '系统出错,请重试', false, '', '确定')
         }
     })
 }
@@ -102,8 +102,8 @@ VM.scanHandle02 = function() {
     wx.scanCode({
         success: (res) => {
             console.log(res);
-            if (res.result.includes('xcx17.mrxdtech.com/api/')) {
-                return util.errorToast('二维码错误');
+            if (!res.result || res.result.includes('xcxdemo2.mrxdtech.com/api')) {
+                return util.showModal('提示', '二维码错误', false, '', '确定')
             }
             let isDisabled = this.data.list.length > 0 ? false : true
             this.setData({
@@ -117,7 +117,7 @@ VM.scanHandle02 = function() {
             if (err.errMsg == "scanCode:fail cancel") {
                 return false;
             }
-            util.errorToast('系统出错,请重试');
+            return util.showModal('提示', '系统出错,请重试', false, '', '确定')
         }
     })
 }

@@ -13,19 +13,16 @@ VM.init = function() {
     util.setHeader(this)
     // 有网络方可校验是否授权
     util.showLoading()
-    console.log(app.globalData);
     // 1.无需检验授权
     // 申请打包配送
     if (app.globalData.apply) {
         console.log('申请终端');
-        console.log('1');
         return wx.redirectTo({
             url: '/pages/operate/operate?type=1'
         })
     }
     // 进入商家终端
     else if (app.globalData.role) {
-        console.log('1');
         console.log('进入终端');
         return wx.redirectTo({
             url: '/pages/operate/operate?type=2'
@@ -38,43 +35,11 @@ VM.init = function() {
         wx.redirectTo({
             url: '/pages/index/index'
         })
-        // // 申请打包配送
-        // if (app.globalData.apply) {
-        //     console.log('申请终端');
-        //     wx.redirectTo({
-        //         url: '/pages/operate/operate?type=1'
-        //     })
-        // }
-        // // 进入商家终端
-        // else if (app.globalData.role) {
-        //     console.log('进入终端');
-        //     wx.redirectTo({
-        //         url: '/pages/operate/operate?type=2'
-        //     })
-        // } else // 普通用户
-        //     wx.redirectTo({
-        //         url: '/pages/index/index'
-        //     })
     }, () => {
         util.hideLoading()
         this.setData({
             checkNow: false
         })
-        // // 申请打包配送
-        // if (app.globalData.apply) {
-        //     wx.redirectTo({
-        //         url: 'pages/operate2/operate2?type=1'
-        //     })
-        // }
-        // // 进入商家终端
-        // else if (app.globalData.role) {
-        //     wx.redirectTo({
-        //         url: 'pages/operate2/operate2?type=2'
-        //     })
-        // } else // 普通用户
-        //     this.setData({
-        //         checkNow: false
-        //     })
     })
 }
 

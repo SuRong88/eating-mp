@@ -1,6 +1,6 @@
 const util = require('./util.js')
 const app = getApp();
-const HOST = 'http://xcx17.mrxdtech.com/api';
+const HOST = 'https://xcxdemo2.mrxdtech.com/api';
 let Request = null;
 // 接口
 const OPTIONS = {

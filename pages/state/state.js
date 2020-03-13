@@ -23,6 +23,9 @@ var VM = {
 VM.init = function(type) {
     // 设置自定义头部
     util.setHeader(this);
+    this.setData({
+      type:type
+    })
 }
 // 名字
 VM.nameCheck = function(e) {
@@ -61,7 +64,7 @@ VM.submitHandle = function() {
     // }
 }
 VM.onLoad = function(query) {
-    this.init(query)
+    this.init(query.type*1)
     base.onLoad(this)
 }
 

@@ -5,32 +5,33 @@ const base = require('../../../utils/base.js');
 const Req = require('../../../utils/request.js');
 var VM = {
     data: {
+        userId:'',
         // 头像
-        headimg:'',
+        headimg: '',
         // 余额
-        amount:0,
+        amount: 0,
         // 代金券
-        voucher_num:0,
-        nickname:'',
+        voucher_num: 0,
+        nickname: '',
         // 用户类型 1-用户 2-配送员 3-打包员 4-全部
-        role:1
+        role: 1
     }
 }
 
 VM.init = function(type) {
     // 设置自定义头部
     util.setHeader(this);
-    Req.request('getUserInfo', {
-    }, {
+    Req.request('getUserInfo', {}, {
         method: 'get'
     }, (res) => {
         let data = res.data
         this.setData({
-            headimg:data.headimg,
-            amount:data.amount,
-            voucher_num:data.voucher_num,
-            nickname:data.nickname||'',
-            role:data.role
+            userId:data.id,
+            headimg: data.headimg,
+            amount: data.amount,
+            voucher_num: data.voucher_num,
+            nickname: data.nickname || '',
+            role: data.role
         })
     }, () => {
         wx.showModal('提示', '系统出错', false, '', '知道了')
@@ -38,7 +39,6 @@ VM.init = function(type) {
 }
 
 VM.onLoad = function(query) {
-    console.log('onload');
     this.init(query)
     base.onLoad(this);
 }
@@ -67,10 +67,12 @@ VM.onReachBottom = function() {
 
 }
 VM.onShareAppMessage = function() {
+    let userId = this.data.userId || '';
+    console.log(userId);
     return {
         title: "正经一餐",
-        path: '/pages/index/index?shareId='+app.globalData.userInfo.id,
+        path: '/pages/introduce/introduce?shareId=' + userId,
         imageUrl: ''
-    }
+    };
 }
 Page(VM)

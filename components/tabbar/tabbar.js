@@ -23,6 +23,8 @@ Component({
      * 组件的初始数据
      */
     data: {
+        // 是否已授权
+        isAbled: false,
         tabbarList: [{
                 "pagePath": "/pages/index/index",
                 "text": "计划",
@@ -51,7 +53,16 @@ Component({
     },
     // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
     lifetimes: {
+        created: function() {
+            // console.log('created');
+            // this.data.isAbled = app.globalData.isAbled
+        },
         attached: function() {
+            // console.log('attached');
+            // console.log(this.data.isAbled);
+            app.globalData.isAbled && this.setData({
+                isAbled: true
+            })
             // 不箭头函数 this指向该组件实例?
             base.onLoad(this);
         },
@@ -73,6 +84,22 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        // 用户授权
+        getUserInfo: function(e) {
+            if (e.detail.userInfo) { //用户按了允许授权按钮
+                util.showLoading()
+                app.userLogin(() => {
+                    this.setData({
+                        isAbled: true
+                    })
+                    util.hideLoading()
+                    wx.redirectTo({
+                        url: '/pages/me/index/index'
+                    })
+                })
+            } else { //用户取消授权
+                util.showModal('提示', '请先授权使用该小程序', false, '', '确定');
+            }
+        }
     }
 })

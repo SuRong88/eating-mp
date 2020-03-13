@@ -226,7 +226,7 @@
 					"name": "终端申请打包员",
 					"pathName": "pages/toggle/toggle",
 					"query": "type=packer",
-					"scene": null
+					"scene": 1047
 				},
 				{
 					"id": -1,
@@ -250,18 +250,18 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "申请终端",
+					"id": 28,
+					"name": "1047扫码申请终端",
 					"pathName": "pages/introduce/introduce",
 					"query": "apply=1",
-					"scene": 1011
+					"scene": 1047
 				},
 				{
-					"id": -1,
+					"id": 29,
 					"name": "进入终端",
 					"pathName": "pages/introduce/introduce",
 					"query": "role=1",
-					"scene": 1011
+					"scene": 1047
 				},
 				{
 					"id": -1,
@@ -276,6 +276,13 @@
 					"pathName": "pages/toggle/toggle",
 					"query": "type=deliver",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/introduce/introduce",
+					"pathName": "pages/introduce/introduce",
+					"query": "apply=1",
+					"scene": 1047
 				}
 			]
 		}

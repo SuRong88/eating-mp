@@ -93,7 +93,7 @@ VM.roleHandle02 = function() {
     wx.login({
         success: res => {
             Req.request('getApplyState', {
-                role: 'deliver',
+                role: 'runner',
                 code: res.code
             }, {
                 method: 'post'
@@ -106,7 +106,7 @@ VM.roleHandle02 = function() {
                     switch (adopt) {
                         case 0:
                             wx.navigateTo({
-                                url: '/pages/toggle/toggle?type=deliver'
+                                url: '/pages/toggle/toggle?type=runner'
                             })
                             break;
                         default:
